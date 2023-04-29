@@ -1,4 +1,4 @@
-## Portfolio and blogging application built with Next JS and Tailwind CSS
+## Blogging application built with Next JS and Tailwind CSS
 
 ## Getting Started
 
