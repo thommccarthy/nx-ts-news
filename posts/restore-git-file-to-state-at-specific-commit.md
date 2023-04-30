@@ -3,10 +3,6 @@ title: Restore Git File to State at Specific Commit
 description: Learn how to restore a Git file to its state at a specific commit.
 slug: restore-git-file-to-state-at-specific-commit
 meta: Learn how to implement clever lazy loading techniques in JavaScript to boost your website's performance.
-date: 2021-10-12
-tags:
-  - git
-  - version-control
 ---
 
 # Restore Git File to State at Specific Commit
