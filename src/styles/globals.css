@@ -2,18 +2,84 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+/* General styles */
+body {
+  font-family: 'Fira Code', monospace;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
 
-ul,
-li {
-  list-style: none;
+body {
+  background-color: rgb(1, 1, 18);
 }
 
-.bulleted-list {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 900;
+  color: white !important;
+}
+
+p {
+  font-weight: 400;
+  color: white;
+}
+
+a {
+  font-weight: 400;
+  color: white;
+}
+
+.mdx ul li {
+  position: relative;
   padding-left: 1.5rem;
-  list-style: disc;
+  list-style: none; /* Add this line to remove the default bullets */
+}
+
+.mdx ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #fde68a; /* yellow-200 color */
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.mdx ul.no-bullet li::before {
+  content: none;
+}
+
+.no-bullet li::before {
+  content: none;
+}
+
+.prose p code {
+  @apply text-yellow-200;
 }

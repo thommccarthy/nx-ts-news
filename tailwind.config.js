@@ -12,7 +12,33 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.white'),
+            a: {
+              color: theme('colors.yellow.200'),
+              '&:hover': {
+                color: theme('colors.yellow.400'),
+              },
+            },
+            h1: {
+              color: theme('colors.white'),
+            },
+            h2: {
+              color: theme('colors.white'),
+            },
+            h3: {
+              color: theme('colors.white'),
+            },
+            p: {
+              color: theme('colors.gray.300'),
+            },
+            maxWidth: '100ch', // Increase the max-width as per your preference, e.g., '80ch', '90ch', '100ch'
+          },
+        },
+      }),
     },
   },
-  plugins: [],
-}
+  plugins: [require('@tailwindcss/typography')],
+};

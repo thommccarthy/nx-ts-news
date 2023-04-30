@@ -1,11 +1,9 @@
 ---
-title: Clever Lazy Loading in JavaScript - Boost Your Website Performance
+title: Lazy Loading Strategies in JavaScript
 description: Learn how to implement clever lazy loading techniques in JavaScript to boost your website's performance.
 slug: clever-lazy-loading-for-javascript
 meta: Learn how to implement clever lazy loading techniques in JavaScript to boost your website's performance.
 ---
-
-# Clever Lazy Loading in JavaScript: Boost Your Website Performance
 
 In today's fast-paced digital world, web performance has become more important than ever. Users are becoming increasingly impatient, and a slow-loading website can lead to a poor user experience. In this post, we'll explore the concept of clever lazy loading in JavaScript and how it can significantly boost your website's performance.
 
