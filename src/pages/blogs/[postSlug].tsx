@@ -22,7 +22,7 @@ const SinglePage: NextPage<Props> = ({ post }) => {
   // Render the post title and content using the provided props
   return (
     <div className='max-w-6xl mx-auto px-5 my-3'>
-      <h1 className='font-extrabold text-4xl mb-4 max-w-prose'>{title}</h1>
+      <h1 className='font-extrabold text-4xl mb-4 max-w-lg'>{title}</h1>
       <div className='prose pb-20 mdx'>
         <MDXRemote {...content} />
       </div>

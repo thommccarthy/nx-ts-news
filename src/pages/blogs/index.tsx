@@ -1,22 +1,16 @@
 // Import the BlogCard component and Next.js types
 import BlogCard from '@/components/BlogCard';
 import { InferGetStaticPropsType, NextPage } from 'next';
-
-// Define an interface for the structure of the API response data
-interface PostApiResponse {
-  postInfo: {
-    title: string;
-    slug: string;
-    meta: string;
-  }[];
-}
+import { readPostsInfo } from '../../../lib/helper';
+import { PostApiResponse } from '../../../utils/types';
 
 // Define the getStaticProps function for fetching the blog posts data
 export const getStaticProps = async () => {
   // Fetch the blog posts data and destructure the postInfo property from the response
-  const { postInfo }: PostApiResponse = await fetch(
-    'http://localhost:3000/api/posts'
-  ).then((data) => data.json());
+  //   const { postInfo }: PostApiResponse = await fetch(
+  //     'http://localhost:3000/api/posts'
+  //   ).then((data) => data.json());
+  const postInfo: PostApiResponse = readPostsInfo();
 
   // Return the blog posts data as props for the Blogs component
   return {

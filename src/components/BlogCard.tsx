@@ -10,9 +10,9 @@ interface Props {
 const BlogCard: FC<Props> = ({ title, desc, slug }): JSX.Element => {
   return (
     <Link href={'/blogs/' + slug}>
-      <li className='bg-green-100 p-3 rounded'>
-        <h2 className='text-4xl text-gray-950 font-bold mb-3'>{title}</h2>
-        <p className='text-xl text-gray-600'>{desc}</p>
+      <li className=' border-yellow-200 border-2 p-7 rounded mb-5'>
+        <h2 className='text-4xl font-bold mb-3'>{title}</h2>
+        <p className='text-xl'>{desc}</p>
       </li>
     </Link>
   );
