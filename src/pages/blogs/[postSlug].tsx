@@ -39,14 +39,16 @@ export const getStaticPaths: GetStaticPaths = () => {
   // Extract the slug from each post file and create a path object
   const paths = dirs.map((filename) => {
     const filePathToRead = path.join(process.cwd(), 'posts/' + filename);
-    const fileContent = fs.readFileSync(filePathToRead, { encoding: 'utf-8' });
+    const fileContent = fs.readFileSync(filePathToRead, {
+      encoding: 'utf-8',
+    });
     return { params: { postSlug: matter(fileContent).data.slug } };
   });
 
   // Return the paths and specify that no fallback behavior should be used for non-existent paths
   return {
     paths: paths,
-    fallback: false,
+    fallback: 'blocking',
   };
 };
 
@@ -65,26 +67,35 @@ type Post = {
 
 // Define the getStaticProps function to fetch the post data based on the postSlug parameter
 export const getStaticProps: GetStaticProps<Post> = async (context) => {
-  // Extract the postSlug from the context params
-  const { postSlug } = context.params as IStaticProps;
+  try {
+    // Extract the postSlug from the context params
+    const { postSlug } = context.params as IStaticProps;
 
-  // Read the post file with the corresponding slug and parse its content using gray-matter
-  const filePathToRead = path.join(process.cwd(), 'posts/' + postSlug + '.md');
-  const fileContent = fs.readFileSync(filePathToRead, { encoding: 'utf-8' });
-  // const { data, content } = matter(fileContent);
-  const source: any = await serialize(fileContent, {
-    parseFrontmatter: true,
-  });
+    // Read the post file with the corresponding slug and parse its content using gray-matter
+    const filePathToRead = path.join(
+      process.cwd(),
+      'posts/' + postSlug + '.md'
+    );
+    const fileContent = fs.readFileSync(filePathToRead, { encoding: 'utf-8' });
+    // const { data, content } = matter(fileContent);
+    const source: any = await serialize(fileContent, {
+      parseFrontmatter: true,
+    });
 
-  // Return the parsed post data as props for the SinglePage component
-  return {
-    props: {
-      post: {
-        content: source,
-        title: source.frontmatter.title,
+    // Return the parsed post data as props for the SinglePage component
+    return {
+      props: {
+        post: {
+          content: source,
+          title: source.frontmatter.title,
+        },
       },
-    },
-  };
+    };
+  } catch (error) {
+    return {
+      notFound: true,
+    };
+  }
 };
 
 // Export the SinglePage component as the default export

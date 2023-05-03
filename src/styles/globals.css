@@ -13,6 +13,14 @@ body {
   color: #333;
 }
 
+.font-fira-code {
+  font-family: 'Fira Code', monospace !important;
+}
+
+.font-space-mono {
+  font-family: 'Space Mono', monospace !important;
+}
+
 /* Headings */
 h1,
 h2,
