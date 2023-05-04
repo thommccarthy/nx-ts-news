@@ -12,6 +12,11 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      fontSize: {
+        '2xl-mobile': '1.5rem', // Add custom font sizes for mobile
+        '3xl-mobile': '1.875rem',
+        '4xl-mobile': '2.25rem',
+      },
       typography: (theme) => ({
         DEFAULT: {
           css: {

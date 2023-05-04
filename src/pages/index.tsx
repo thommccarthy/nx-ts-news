@@ -1,14 +1,11 @@
-import Image from 'next/image';
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
-
 export default function Home() {
   return (
     <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
+      className={`flex min-h-screen flex-col items-center justify-between p-24`}
     >
-      <h1>Hello </h1>
+      <h1 className='font-extrabold text-center'>
+        Hey, I`m <span className=''>Thom</span>
+      </h1>
     </main>
   );
 }
