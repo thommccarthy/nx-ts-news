@@ -5,7 +5,7 @@ import Image from 'next/image';
 const Navbar: React.FC = () => {
   return (
     <div className='border-t-yellow-200 d-block border-t-4 mb-14 glassWrapper sticky top-0'>
-      <nav className='mx-auto py-6 px-3 flex justify-between align-sub max-w-6xl'>
+      <nav className='mx-auto py-6 px-3 flex justify-between align-sub max-w-4xl'>
         <Link
           href='/'
           className='font-space-mono font-black text-2xl'
