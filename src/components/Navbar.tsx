@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <div className='border-t-yellow-200 d-block border-t-4 mb-16 glassWrapper sticky top-0 z-50'>
+    <div className='border-t-yellow-200 d-block border-t-4 glassWrapper sticky top-0 z-50 mb-5 md:mb-11'>
       <nav className='mx-auto py-6 px-3 flex justify-between align-sub max-w-4xl'>
         <Link
           href='/'

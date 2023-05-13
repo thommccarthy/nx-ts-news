@@ -31,6 +31,12 @@ body {
   font-family: 'Fira Code', monospace !important;
 }
 
+.retro {
+  text-shadow: 1px 1px 95px #fcd34da1, 2px 2px 16px #f472b5b8,
+    3px 3px 90px #22d3eeb3;
+  letter-spacing: 1px;
+}
+
 .font-space-mono {
   font-family: 'Space Mono', monospace !important;
 }
