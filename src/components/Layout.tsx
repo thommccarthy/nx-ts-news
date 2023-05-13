@@ -11,7 +11,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className={styles.container}>
       <Navbar />
-      <main className={styles.main}>{children}</main>
+      <main>{children}</main>
       <Footer />
     </div>
   );
