@@ -52,12 +52,18 @@ const Navbar: React.FC = () => {
         </button>
         <ul className='sm:flex align-baseline gap-4 hidden'>
           <li className='mb-0 pb-0 '>
-            <Link href='/blogs' className='text-lg custom-nav-link'>
+            <Link
+              href='/blogs'
+              className='text-lg custom-nav-link custom-nav-link--header'
+            >
               Blog
             </Link>
           </li>
           <li>
-            <Link href='/about' className='text-lg custom-nav-link'>
+            <Link
+              href='/about'
+              className='text-lg custom-nav-link custom-nav-link--header'
+            >
               About
             </Link>
           </li>
@@ -84,12 +90,18 @@ const Navbar: React.FC = () => {
             </button>
             <ul className='text-center text-2xl mt-24'>
               <li className='mb-8'>
-                <Link href='/blogs' className='text-lg custom-nav-link'>
+                <Link
+                  href='/blogs'
+                  className='text-lg custom-nav-link custom-nav-link--header'
+                >
                   Blog
                 </Link>
               </li>
               <li className='mb-8'>
-                <Link href='/about' className='text-lg custom-nav-link'>
+                <Link
+                  href='/about'
+                  className='text-lg custom-nav-link custom-nav-link--header'
+                >
                   About
                 </Link>
               </li>

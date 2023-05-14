@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import styles from './index.module.css';
 import Link from 'next/link';
+import LatestNewsHome from '@/components/index/LatestNewsHome';
 
 export default function Home() {
   return (
@@ -8,23 +9,26 @@ export default function Home() {
       <h1 className=' font-black text-center mb-1 md:mb-3 font-fira-code'>
         <span className='retro'>Thom McCarthy</span>
       </h1>
-      <h2 className='font-normal text-center mb-8 md:mb-12'>UI Engineer</h2>
+      <h2 className='font-normal text-center mb-8 md:mb-12'>UX Engineer</h2>
       <div className='border-indigo-800 backgroundGlass border-2 px-3 md:px-9 rounded-lg max-w-4xl w-100 flex justify-center items-center py-16  shadow-indigo-500 shadow-lg mb-6 md:mb-12'>
         <div className='text-center md:text-left'>
           <p className='text-xl font-bold md:pr-5'>
-            I{`'`}m a Web <span className='text-yellow-500'>UI Engineer</span>{' '}
+            I{`'`}m a Web <span className='text-yellow-500'>UX Engineer</span>{' '}
             based in <span>West Philadelphia</span>
             <br />
-            <br />I build responsive, scalable and robustly accessible web
-            interfaces. Sometimes I write{' '}
+            <br />I build and design responsive, scalable and robustly
+            accessible web interfaces. On occasion I will write{' '}
             <span className='whitespace-nowrap'>about it.</span>
             <br />
           </p>
-          <p className='mt-4'>
-            <Link href='/about' className='mt-2 text-2xl font-bold'>
+          <div className='mt-4'>
+            <Link
+              href='/about'
+              className='mt-2 custom-link-2 text-2xl font-bold'
+            >
               About Me
             </Link>
-          </p>
+          </div>
         </div>
         <Image
           src='/assets/index/Thom_headshot.jpg'
@@ -43,7 +47,7 @@ export default function Home() {
         </div>
       </div>
 
-      <h2 className='text-center'>Latest Posts</h2>
+      <LatestNewsHome />
     </div>
   );
 }
