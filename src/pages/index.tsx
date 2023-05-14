@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styles from './index.module.css';
 import Link from 'next/link';
-import LatestNewsHome from '@/components/index/LatestNewsHome';
+import LatestPostsHome from '@/components/index/LatestPostsHome';
 
 export default function Home() {
   return (
@@ -47,7 +47,7 @@ export default function Home() {
         </div>
       </div>
 
-      <LatestNewsHome />
+      <LatestPostsHome />
     </div>
   );
 }

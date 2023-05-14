@@ -2,7 +2,7 @@ import React from 'react';
 
 type Props = {};
 
-const LatestNewsHome = (props: Props) => {
+const LatestPostsHome = (props: Props) => {
   return (
     <div>
       <h2 className='text-center'>Latest Posts</h2>
@@ -10,4 +10,4 @@ const LatestNewsHome = (props: Props) => {
   );
 };
 
-export default LatestNewsHome;
+export default LatestPostsHome;
