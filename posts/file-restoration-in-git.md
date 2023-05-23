@@ -3,6 +3,8 @@ title: 'Mastering File Restoration in Git: A Comprehensive Guide'
 description: Learn how to restore a Git file to its state at a specific commit.
 slug: file-restoration-in-git
 meta: Learn how to restore a Git file to its state at a specific commit.
+date: '2023-10-12 12:00:00'
+tags: [Git, Version Control]
 ---
 
 ## Introduction:

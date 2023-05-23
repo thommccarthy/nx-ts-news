@@ -3,6 +3,8 @@ title: 'Mastering Your Tools: Why Proficiency Matters More Than Preference in Pr
 description: Learn how to master your tools to boost your productivity and become a better developer.
 slug: mastering-your-tools
 meta: Learn how to master your tools to boost your productivity and become a better developer.
+date: '2021-10-12 12:00:00'
+tags: [Javascript, Programming]
 ---
 
 ## Table of Contents
