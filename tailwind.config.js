@@ -16,7 +16,7 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       fontSize: {
-        '2xl-mobile': '1.5rem', // Add custom font sizes for mobile
+        '2xl-mobile': '1.5rem',
         '3xl-mobile': '1.875rem',
         '4xl-mobile': '2.25rem',
       },
@@ -42,7 +42,7 @@ module.exports = {
             p: {
               color: theme('colors.gray.300'),
             },
-            maxWidth: '100ch', // Increase the max-width as per your preference, e.g., '80ch', '90ch', '100ch'
+            maxWidth: '100ch',
           },
         },
       }),

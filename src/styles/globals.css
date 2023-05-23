@@ -169,3 +169,14 @@ a:hover {
   background-color: rgba(6, 2, 35, 0.16);
   backdrop-filter: blur(40px);
 }
+
+.mobile-menu-button {
+  position: relative; /* or absolute depending on the parent positioning */
+  width: 40px; /* adjust as per your need */
+  height: 40px; /* adjust as per your need */
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.mobile-menu-button svg {
+  margin: auto;
+}

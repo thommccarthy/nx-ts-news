@@ -10,21 +10,22 @@ export default function Home() {
         <span className='retro'>Thom McCarthy</span>
       </h1>
       <h2 className='font-normal text-center mb-8 md:mb-12'>UX Engineer</h2>
+      {/* about */}
       <div className='border-indigo-800 backgroundGlass border-2 px-3 md:px-9 rounded-lg max-w-4xl w-100 flex justify-center items-center py-16  shadow-indigo-500 shadow-lg mb-6 md:mb-12'>
         <div className='text-center md:text-left'>
           <p className='text-xl font-bold md:pr-5'>
             I{`'`}m a Web <span className='text-yellow-500'>UX Engineer</span>{' '}
             based in <span>West Philadelphia</span>
             <br />
-            <br />I build and design responsive, scalable and robustly
-            accessible web interfaces. On occasion I will write{' '}
+            <br />I build and design responsive, scalable, robust and accessible
+            web interfaces. On occasion I will write{' '}
             <span className='whitespace-nowrap'>about it.</span>
             <br />
           </p>
           <div className='mt-4'>
             <Link
               href='/about'
-              className='mt-2 custom-link-2 text-2xl font-bold'
+              className='mt-2 custom-link-2 text-2xl font-medium'
             >
               About Me
             </Link>

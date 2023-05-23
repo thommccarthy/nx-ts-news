@@ -23,14 +23,17 @@ const Navbar: React.FC = () => {
           />
         </Link>
         <button
-          type='button'
-          className='text-yellow-200 hover:text-yellow-400 focus:outline-none focus:text-yellow-400 sm:hidden'
+          className='text-yellow-200 hover:text-yellow-400 focus:outline-none focus:text-yellow-400 sm:hidden mobile-menu-button'
           onClick={toggleMenu}
+          aria-controls='mobile-nav'
+          aria-expanded={isOpen ? 'true' : 'false'}
+          aria-label='Toggle Menu'
         >
           <svg
             viewBox='0 0 20 20'
             fill='currentColor'
-            className={`${isOpen ? 'hidden' : 'block'} menu w-6 h-6`}
+            className={`${isOpen ? 'hidden' : 'block'} menu w-7 h-7`}
+            aria-hidden='true'
           >
             <path
               fillRule='evenodd'
@@ -42,6 +45,7 @@ const Navbar: React.FC = () => {
             viewBox='0 0 20 20'
             fill='currentColor'
             className={`${isOpen ? 'block' : 'hidden'} close w-6 h-6`}
+            aria-hidden='true'
           >
             <path
               fillRule='evenodd'
@@ -70,8 +74,11 @@ const Navbar: React.FC = () => {
         </ul>
       </nav>
       {isOpen && (
-        <div className='fixed top-0 left-0 w-full h-full z-40 bg-black '>
-          <nav className='pt-10 px-6 sm:hidden'>
+        <div
+          className='fixed top-5 right-1 z-40 bg-indigo-900 border-indigo-500 border-2 shadow-indigo-500 shadow-md rounded-md min-h-24'
+          id='mobile-nav'
+        >
+          <nav className='pt-10 px-6 sm:hidden' aria-label='primary'>
             <button
               type='button'
               className='text-yellow-200 hover:text-yellow-400 focus:outline-none focus:text-yellow-400 absolute top-4 right-4'
@@ -88,7 +95,7 @@ const Navbar: React.FC = () => {
                 />
               </svg>
             </button>
-            <ul className='text-center text-2xl mt-24'>
+            <ul className='text-center text-2xl '>
               <li className='mb-8'>
                 <Link
                   href='/blogs'
