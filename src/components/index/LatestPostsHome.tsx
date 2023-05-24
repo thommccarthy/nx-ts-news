@@ -1,11 +1,47 @@
-import React from 'react';
+import { FC } from 'react';
+import BlogCard from '../blogs/BlogCard';
+import { PostApiResponse } from '../../../utils/types';
+import Link from 'next/link';
 
-type Props = {};
+interface Props {
+  posts: PostApiResponse;
+}
 
-const LatestPostsHome = (props: Props) => {
+const LatestPostsHome: FC<Props> = ({ posts }) => {
   return (
-    <div>
-      <h2 className='text-center'>Latest Posts</h2>
+    <div className='mb-5'>
+      <h2 className='text-center mb-8 md:mb-12'>Latest Posts</h2>
+      <ul className='max-w-5xl mx-auto my-9 space-y-9'>
+        {posts.slice(0, 1).map((post) => (
+          <BlogCard
+            key={post.slug}
+            title={post.title}
+            desc={post.meta}
+            slug={post.slug}
+            date={post.date}
+            tags={post.tags}
+          />
+        ))}
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+          {posts.slice(1, 3).map((post) => (
+            <BlogCard
+              key={post.slug}
+              title={post.title}
+              desc={post.meta}
+              slug={post.slug}
+              date={post.date}
+              tags={post.tags}
+            />
+          ))}
+        </div>
+      </ul>
+      <Link
+        href='/blogs'
+        className='backgroundGlass font-bold text-xl mx-auto flex py-4 px-7 mb-14 rounded-lg max-w-max border-2 border-indigo-500 hover:border-sky-300 hover:bottom-10
+        hover:text-sky-300 shadow-indigo-900 shadow-md transition-all duration-300 ease-in-out'
+      >
+        See All Posts &rarr;
+      </Link>
     </div>
   );
 };

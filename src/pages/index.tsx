@@ -2,8 +2,29 @@ import Image from 'next/image';
 import styles from './index.module.css';
 import Link from 'next/link';
 import LatestPostsHome from '@/components/index/LatestPostsHome';
+import { FC } from 'react';
+import { InferGetStaticPropsType, NextPage } from 'next';
+import { readPostsInfo } from '../../lib/helper';
+import { PostApiResponse } from '../../utils/types';
 
-export default function Home() {
+export const getStaticProps = async () => {
+  const postInfo: PostApiResponse = readPostsInfo();
+
+  postInfo.sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+
+    return dateB.getTime() - dateA.getTime();
+  });
+
+  return {
+    props: { posts: postInfo },
+  };
+};
+
+type Props = InferGetStaticPropsType<typeof getStaticProps>;
+
+const Home: FC<Props> = ({ posts }) => {
   return (
     <div className={`flex min-h-screen flex-col p-2 max-w-4xl mx-auto`}>
       <h1 className=' font-black text-center mb-1 md:mb-3 font-fira-code'>
@@ -48,7 +69,9 @@ export default function Home() {
         </div>
       </div>
 
-      <LatestPostsHome />
+      <LatestPostsHome posts={posts} />
     </div>
   );
-}
+};
+
+export default Home;

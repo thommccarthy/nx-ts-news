@@ -19,6 +19,16 @@ const BlogCard: FC<Props> = ({
 }): JSX.Element => {
   const [isHovered, setIsHovered] = useState(false);
 
+  // Parse the date string into a Date object
+  const parsedDate = new Date(date);
+
+  // Format the date into a human-readable format
+  const formattedDate = parsedDate.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+
   return (
     <li>
       <Link href={'/blogs/' + slug} aria-label={title}>
@@ -35,6 +45,9 @@ const BlogCard: FC<Props> = ({
           <h2 className='font-bold mb-3 text-center md:text-left  text-2xl md:text-3xl'>
             {title}
           </h2>
+          <p className='text-center md:text-left text-sm md:text-base font-black mb-3'>
+            {formattedDate}
+          </p>
           <ul className='tags flex justify-center md:justify-start gap-2 mb-5'>
             {tags.map((tag) => (
               <li key={tag}>
