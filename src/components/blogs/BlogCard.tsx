@@ -30,7 +30,7 @@ const BlogCard: FC<Props> = ({
   });
 
   return (
-    <li>
+    <>
       <Link href={'/blogs/' + slug} aria-label={title}>
         <div
           className=' border-pink-600 hover:border-seascape focus:border-seascape hover:bottom-10 border-2 px-3 py-7 md:p-7 mb-5 rounded-xl backgroundGlass shadow-indigo-500 shadow-lg transition-all duration-300 ease-in-out'
@@ -58,7 +58,7 @@ const BlogCard: FC<Props> = ({
           <p className='md:text-xl'>{desc}</p>{' '}
         </div>
       </Link>
-    </li>
+    </>
   );
 };
 

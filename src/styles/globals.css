@@ -24,6 +24,8 @@ body {
       transparent 1px
     ),
     linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+
+  background-color: rgb(16 16 52);
   background-size: 20px 20px;
 }
 
@@ -166,8 +168,8 @@ a:hover {
 }
 
 .backgroundGlass {
-  background-color: rgba(6, 2, 35, 0.16);
-  backdrop-filter: blur(40px);
+  background-color: rgba(6, 2, 35, 0.765);
+  backdrop-filter: blur(10px);
 }
 
 .mobile-menu-button {

@@ -17,15 +17,26 @@ const handler: NextApiHandler = (req, res) => {
 };
 
 const readPostsInfo = () => {
-  //process.cwd grabs current working directory as opposed tio dirname
   const dirPathToRead = path.join(process.cwd(), 'posts');
   const dirs = fs.readdirSync(dirPathToRead);
 
-  const data = dirs.map((filename) => {
-    const filePathToRead = path.join(process.cwd(), 'posts/' + filename);
-    const fileContent = fs.readFileSync(filePathToRead, { encoding: 'utf-8' });
-    return matter(fileContent).data;
-  });
+  let data = [];
+
+  for (let dir of dirs) {
+    const postDir = path.join(dirPathToRead, dir);
+    if (fs.statSync(postDir).isDirectory()) {
+      const postFiles = fs.readdirSync(postDir);
+      for (let postFile of postFiles) {
+        if (postFile.endsWith('.md')) {
+          const filePathToRead = path.join(postDir, postFile);
+          const fileContent = fs.readFileSync(filePathToRead, {
+            encoding: 'utf-8',
+          });
+          data.push(matter(fileContent).data);
+        }
+      }
+    }
+  }
 
   return data;
 };

@@ -11,29 +11,21 @@ const LatestPostsHome: FC<Props> = ({ posts }) => {
   return (
     <div className='mb-5'>
       <h2 className='text-center mb-8 md:mb-12'>Latest Posts</h2>
-      <ul className='max-w-5xl mx-auto my-9 space-y-9'>
-        {posts.slice(0, 1).map((post) => (
-          <BlogCard
+      <ul className='max-w-5xl mx-auto my-9 grid grid-cols-1 md:grid-cols-2 gap-4'>
+        {posts.slice(0, 3).map((post, index) => (
+          <li
             key={post.slug}
-            title={post.title}
-            desc={post.meta}
-            slug={post.slug}
-            date={post.date}
-            tags={post.tags}
-          />
-        ))}
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-          {posts.slice(1, 3).map((post) => (
+            className={`${index === 0 ? 'md:col-span-2' : ''}`}
+          >
             <BlogCard
-              key={post.slug}
               title={post.title}
               desc={post.meta}
               slug={post.slug}
               date={post.date}
               tags={post.tags}
             />
-          ))}
-        </div>
+          </li>
+        ))}
       </ul>
       <Link
         href='/blogs'
