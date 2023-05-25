@@ -35,9 +35,9 @@ const Home: FC<Props> = ({ posts }) => {
       {/* about */}
       <div className='border-indigo-800 backgroundGlass border-2 px-3 md:px-9 rounded-lg max-w-4xl mx-auto w-100 flex justify-center items-center py-16  shadow-indigo-500 shadow-lg mb-6 md:mb-12'>
         <div className='text-center md:text-left'>
-          <p className='text-xl font-bold md:pr-5'>
-            I{`'`}m a Web <span className='text-yellow-500'>UX Engineer</span>{' '}
-            based in <span>West Philadelphia</span>
+          <p className='text-xl font-normal md:pr-5'>
+            I{`'`}m a <span className='font-black'>UX Engineer</span> based in{' '}
+            <span>West Philadelphia</span>
             <br />
             <br />I build and design responsive, scalable, robust and accessible
             web interfaces. On occasion I will write{' '}
@@ -47,9 +47,9 @@ const Home: FC<Props> = ({ posts }) => {
           <div className='mt-4'>
             <Link
               href='/about'
-              className='mt-2 custom-link-2 text-2xl font-medium'
+              className='mt-2 custom-link-2 text-xl font-bold tracking-wide'
             >
-              About Me
+              About Me &rarr;
             </Link>
           </div>
         </div>

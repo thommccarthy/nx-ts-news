@@ -23,21 +23,22 @@ type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 const Blogs: NextPage<Props> = ({ posts }) => {
   return (
-    <>
+    <div className='p-5'>
       <h1 className=' font-black text-center mb-4 md:mb-9 font-fira-code'>
         <span className='retro'>Blog</span>
       </h1>
       <div
-        className='backgroundGlass font-bold text-xl mx-auto flex justify-center  py-8 px-7 mt-10 mb-14 rounded-lg max-w-3xl border-2 border-sky-300  hover:bottom-10
-         shadow-indigo-900 shadow-lg transition-all duration-300 ease-in-out'
+        className='backgroundGlass font-bold text-xl mx-auto flex justify-center py-8 px-7 mt-10 mb-14 rounded-lg max-w-3xl border-2 border-sky-300  hover:bottom-10
+         shadow-indigo-900 shadow-lg transition-all duration-300 ease-in-out '
       >
         <p className='text-center font-semibold'>
           I write about modern web development, design and tooling, with an
-          emphasis on functional and accessible UX principals.
+          emphasis on functional and accessible{' '}
+          <span className='whitespace-nowrap'>UX principals.</span>
         </p>
       </div>
       <RainbowDivider />
-      <ul className='max-w-5xl flex flex-col mx-auto p-5 gap-4'>
+      <ul className='max-w-5xl flex flex-col mx-auto py-5 mb-14 gap-4'>
         {posts.map((post) => (
           <li key={post.slug}>
             <BlogCard
@@ -50,7 +51,7 @@ const Blogs: NextPage<Props> = ({ posts }) => {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 };
 
