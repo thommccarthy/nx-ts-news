@@ -40,7 +40,7 @@ module.exports = {
               color: theme('colors.white'),
             },
             p: {
-              color: theme('colors.gray.300'),
+              color: theme('colors.gray.100'),
             },
             maxWidth: '100ch',
           },
