@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
           <svg
             viewBox='0 0 20 20'
             fill='currentColor'
-            className={`${isOpen ? 'hidden' : 'block'} menu w-7 h-7`}
+            className='block menu w-7 h-7'
             aria-hidden='true'
           >
             <path
@@ -59,20 +59,8 @@ const Navbar: React.FC = () => {
               clipRule='evenodd'
             />
           </svg>
-          <svg
-            viewBox='0 0 20 20'
-            fill='currentColor'
-            className={`${isOpen ? 'block' : 'hidden'} close w-6 h-6`}
-            aria-hidden='true'
-          >
-            <path
-              fillRule='evenodd'
-              d='M10 9a1 1 0 011-1h3a1 1 0 110 2h-3a1 1 0 01-1-1zm-6 1a1 1 0 011-1h3a1 1 0 110 2H5a1 1 0 01-1-1zm11 1a1 1 0 100 2H5a1 1 0 100-2h10zm-1 4a1 1 0 100 2H6a1 1 0 100-2h4zm-1-8a1 1 0 100 2H6a1 1 0 100-2h4z'
-              clipRule='evenodd'
-            />
-          </svg>
         </button>
-        <ul className='sm:flex align-baseline gap-4 hidden'>
+        <ul className='hidden sm:flex align-baseline gap-4 '>
           <li className='mb-0 pb-0 '>
             <Link
               href='/blogs'

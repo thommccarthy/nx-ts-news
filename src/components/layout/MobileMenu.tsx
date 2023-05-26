@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { FC, useRef, useEffect, KeyboardEvent } from 'react';
-import useOutsideClick from '../../hooks/useOutsideClick';
+import { FC, useRef, KeyboardEvent } from 'react';
+import useOutsideClick from '@/hooks/useOutsideClick';
+import { useFocusTrap } from '@/hooks/useFocusTrap';
 
 interface Props {
   toggleMenu: () => void;
@@ -21,49 +22,7 @@ export const MobileMenu: FC<Props> = ({
 
   useOutsideClick(menuRef, toggleMenu);
 
-  //   useEffect(() => {
-  //     const handleClickOutside = (e: MouseEvent) => {
-  //       if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-  //         toggleMenu();
-  //       }
-  //     };
-
-  //     if (isOpen) {
-  //       document.addEventListener('mousedown', handleClickOutside);
-  //     } else {
-  //       document.removeEventListener('mousedown', handleClickOutside);
-  //     }
-
-  //     return () => {
-  //       document.removeEventListener('mousedown', handleClickOutside);
-  //     };
-  //   }, [isOpen, toggleMenu]);
-
-  const handleBackwardTab = (e: KeyboardEvent) => {
-    if (document.activeElement === closeRef.current) {
-      e.preventDefault();
-      lastLinkRef.current?.focus();
-    }
-  };
-
-  const handleForwardTab = (e: KeyboardEvent) => {
-    if (document.activeElement === lastLinkRef.current) {
-      e.preventDefault();
-      closeRef.current?.focus();
-    }
-  };
-
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === 'Tab') {
-      // Shift + Tab
-      if (e.shiftKey) {
-        handleBackwardTab(e);
-      } else {
-        // Tab
-        handleForwardTab(e);
-      }
-    }
-  };
+  const handleKeyDown = useFocusTrap(closeRef, lastLinkRef);
 
   return (
     <div
@@ -72,7 +31,7 @@ export const MobileMenu: FC<Props> = ({
       onKeyDown={handleKeyDown}
       ref={menuRef}
     >
-      <nav className='pt-10 px-6 sm:hidden' aria-label='primary'>
+      <nav className='pt-10 px-6 sm:hidden' aria-label='mobile-primary'>
         <button
           type='button'
           className='text-yellow-200 hover:text-yellow-300 focus:outline-sky-300  absolute top-4 right-4'
@@ -86,6 +45,7 @@ export const MobileMenu: FC<Props> = ({
             viewBox='0 0 20 20'
             fill='currentColor'
             className='close w-6 h-6'
+            aria-hidden='true'
           >
             <path
               fillRule='evenodd'
@@ -93,12 +53,13 @@ export const MobileMenu: FC<Props> = ({
             />
           </svg>
         </button>
-        <ul className='text-center text-2xl '>
+        <ul className='text-center text-2xl'>
           <li className='mb-8'>
             <Link
               href='/'
               className='text-lg custom-nav-link custom-nav-link--header'
               onClick={toggleMenu}
+              title='Thom McCarthy | Home'
             >
               Home
             </Link>
@@ -108,6 +69,7 @@ export const MobileMenu: FC<Props> = ({
               href='/blogs'
               className='text-lg custom-nav-link custom-nav-link--header'
               onClick={toggleMenu}
+              title='Thom McCarthy | Blog'
             >
               Blog
             </Link>
@@ -118,6 +80,7 @@ export const MobileMenu: FC<Props> = ({
               className='text-lg custom-nav-link custom-nav-link--header'
               ref={lastLinkRef}
               onClick={toggleMenu}
+              title='Thom McCarthy | About'
             >
               About
             </Link>
