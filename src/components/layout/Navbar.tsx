@@ -37,6 +37,8 @@ const Navbar: React.FC = () => {
             alt='Thom McCarthy'
             width={250}
             height={250}
+            priority
+            className='h-auto'
           />
         </Link>
         <button
@@ -65,6 +67,7 @@ const Navbar: React.FC = () => {
             <Link
               href='/blogs'
               className='text-lg custom-nav-link custom-nav-link--header'
+              title='Thom McCarthy | Blog'
             >
               Blog
             </Link>
@@ -73,6 +76,7 @@ const Navbar: React.FC = () => {
             <Link
               href='/about'
               className='text-lg custom-nav-link custom-nav-link--header'
+              title='Thom McCarthy | About'
             >
               About
             </Link>

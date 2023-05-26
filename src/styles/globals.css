@@ -180,3 +180,7 @@ a:hover {
 .mobile-menu-button svg {
   margin: auto;
 }
+
+.text-paragraph {
+  @apply text-lg md:text-xl md:pr-5 mb-4;
+}

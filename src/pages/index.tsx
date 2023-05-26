@@ -33,9 +33,9 @@ const Home: FC<Props> = ({ posts }) => {
       </h1>
       <h2 className='font-normal text-center mb-8 md:mb-12'>UX Engineer</h2>
       {/* about */}
-      <div className='border-indigo-800 backgroundGlass border-2 px-3 md:px-9 rounded-lg max-w-4xl mx-auto w-100 flex justify-center items-center py-16  shadow-indigo-500 shadow-lg mb-6 md:mb-12'>
+      <div className='border-indigo-800 backgroundGlass border-2 px-3 md:px-9 rounded-lg max-w-4xl mx-auto w-100 flex justify-center items-center py-8  shadow-indigo-500 shadow-lg mb-6 md:mb-12'>
         <div className='text-center md:text-left'>
-          <p className='text-xl font-normal md:pr-5'>
+          <p className='text-lg md:text-xl font-normal md:pr-5'>
             I{`'`}m a <span className='font-black'>UX Engineer</span> based in{' '}
             <span>West Philadelphia</span>
             <br />
@@ -47,7 +47,7 @@ const Home: FC<Props> = ({ posts }) => {
           <div className='mt-4'>
             <Link
               href='/about'
-              className='mt-2 custom-link-2 text-xl font-bold tracking-wide'
+              className='mt-2 underline text-xl font-bold decoration-sky-300'
             >
               About Me &rarr;
             </Link>
@@ -58,7 +58,7 @@ const Home: FC<Props> = ({ posts }) => {
           alt=''
           width={200}
           height={200}
-          className={`rounded-full hidden sm:block ${styles.bgGradientImg}`}
+          className={`rounded-full hidden md:block ${styles.bgGradientImg}`}
         />
       </div>
       <RainbowDivider />
