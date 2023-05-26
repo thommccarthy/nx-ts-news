@@ -2,7 +2,6 @@ import Image from 'next/image';
 import styles from './index.module.css';
 import Link from 'next/link';
 import LatestPostsHome from '@/components/index/LatestPostsHome';
-import { FC } from 'react';
 import { InferGetStaticPropsType, NextPage } from 'next';
 import { readPostsInfo } from '../../lib/helper';
 import { PostApiResponse } from '../../utils/types';
@@ -25,7 +24,7 @@ export const getStaticProps = async () => {
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
-const Home: FC<Props> = ({ posts }) => {
+const Home: NextPage<Props> = ({ posts }) => {
   return (
     <div className={`flex min-h-screen  flex-col p-4 mx-auto`}>
       <h1 className=' font-black text-center mb-1 md:mb-3 font-fira-code'>

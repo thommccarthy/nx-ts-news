@@ -42,6 +42,9 @@ module.exports = {
             p: {
               color: theme('colors.gray.100'),
             },
+            pre: {
+              border: '2px solid #fbb6ce',
+            },
             maxWidth: '100ch',
           },
         },

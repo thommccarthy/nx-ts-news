@@ -103,6 +103,12 @@ a {
   content: none;
 }
 
+.prose :where(pre):not(:where([class~='not-prose'] *)) {
+  @apply border-indigo-500 !important;
+  @apply rounded-md;
+  @apply shadow-indigo-900 shadow-lg;
+}
+
 .no-bullet li::before {
   content: none;
 }

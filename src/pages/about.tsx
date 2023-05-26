@@ -51,7 +51,7 @@ const About: React.FC = () => {
           <h2 className='mt-5 text-lg md:text-xl font-normal font-fira-code'>
             Some of my current favorite tech includes:
           </h2>
-          <ul className='flex justify-center gap-3 flex-wrap text-white mt-6 mx-auto px-10 max-w-3xl'>
+          <ul className='flex justify-center gap-3 flex-wrap text-white mt-6 mx-auto px-5 md:px-10 max-w-3xl'>
             {techILike.map((tech) => (
               <li key={tech}>
                 <BlogTag tagName={tech} />
