@@ -7,18 +7,22 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const openRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
+  const [hasInteracted, setHasInteracted] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+    setHasInteracted(true);
   };
 
   useEffect(() => {
-    if (isOpen) {
-      closeRef.current?.focus();
-    } else {
-      openRef.current?.focus();
+    if (hasInteracted) {
+      if (isOpen) {
+        closeRef.current?.focus();
+      } else {
+        openRef.current?.focus();
+      }
     }
-  }, [isOpen]);
+  }, [isOpen, hasInteracted]);
 
   return (
     <div className='border-t-yellow-200 d-block border-t-4 glassWrapper sticky top-0 z-50 mb-5 md:mb-11'>

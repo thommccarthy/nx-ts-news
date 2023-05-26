@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { FC, useRef, useEffect, KeyboardEvent } from 'react';
+import useOutsideClick from '../../hooks/useOutsideClick';
 
 interface Props {
   toggleMenu: () => void;
@@ -18,23 +19,25 @@ export const MobileMenu: FC<Props> = ({
 
   const menuRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-        toggleMenu();
-      }
-    };
+  useOutsideClick(menuRef, toggleMenu);
 
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    } else {
-      document.removeEventListener('mousedown', handleClickOutside);
-    }
+  //   useEffect(() => {
+  //     const handleClickOutside = (e: MouseEvent) => {
+  //       if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+  //         toggleMenu();
+  //       }
+  //     };
 
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isOpen, toggleMenu]);
+  //     if (isOpen) {
+  //       document.addEventListener('mousedown', handleClickOutside);
+  //     } else {
+  //       document.removeEventListener('mousedown', handleClickOutside);
+  //     }
+
+  //     return () => {
+  //       document.removeEventListener('mousedown', handleClickOutside);
+  //     };
+  //   }, [isOpen, toggleMenu]);
 
   const handleBackwardTab = (e: KeyboardEvent) => {
     if (document.activeElement === closeRef.current) {
