@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { FC, useState } from 'react';
 import BlogTag from './BlogTag';
+import useFormattedDate from '@/hooks/useFormattedDate';
 
 interface Props {
   title: string;
@@ -19,13 +20,7 @@ const BlogCard: FC<Props> = ({
 }): JSX.Element => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const parsedDate = new Date(date);
-
-  const formattedDate = parsedDate.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+  const formattedDate = useFormattedDate(date);
 
   return (
     <>

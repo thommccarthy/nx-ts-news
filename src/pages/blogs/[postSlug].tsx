@@ -12,25 +12,17 @@ import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import BlogTag from '@/components/blogs/BlogTag';
 import RainbowDivider from '@/components/global/decorative/RainbowDivider';
+import useFormattedDate from '@/hooks/useFormattedDate';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 const SinglePage: NextPage<Props> = ({ post }) => {
-  const { content, title, date, desc, tags } = post;
-
-  // Parse the date string into a Date object
-  const parsedDate = new Date(date);
-
-  // Format the date into a human-readable format
-  const formattedDate = parsedDate.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+  const { content, title, date, tags } = post;
+  const formattedDate = useFormattedDate(date);
 
   return (
     <div className='max-w-4xl mx-auto px-5 my-3'>
-      <h1 className='font-extrabold text-center text-4xl mb-4 retro'>
+      <h1 className='font-extrabold text-center text-3xl md:text-4xl mb-4 retro'>
         {title}
       </h1>
       <p className='text-sm md:text-base font-black mb-5 max-w-max px-3 py-1 text-center mx-auto rounded-md'>
