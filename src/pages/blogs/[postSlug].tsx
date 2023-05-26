@@ -10,15 +10,41 @@ import matter from 'gray-matter';
 import { ParsedUrlQuery } from 'querystring';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
+import BlogTag from '@/components/blogs/BlogTag';
+import RainbowDivider from '@/components/global/decorative/RainbowDivider';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 const SinglePage: NextPage<Props> = ({ post }) => {
-  const { content, title } = post;
+  const { content, title, date, desc, tags } = post;
+
+  // Parse the date string into a Date object
+  const parsedDate = new Date(date);
+
+  // Format the date into a human-readable format
+  const formattedDate = parsedDate.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 
   return (
     <div className='max-w-4xl mx-auto px-5 my-3'>
-      <h1 className='font-extrabold text-4xl mb-4 '>{title}</h1>
+      <h1 className='font-extrabold text-center text-4xl mb-4 retro'>
+        {title}
+      </h1>
+      <p className='text-sm md:text-base font-black mb-5 max-w-max px-3 py-1 text-center mx-auto rounded-md'>
+        {formattedDate}
+      </p>
+      <ul className='tags flex justify-center items-center mx-auto gap-2 mb-5'>
+        {tags.map((tag) => (
+          <li key={tag}>
+            <BlogTag tagName={tag} />
+          </li>
+        ))}
+      </ul>
+
+      <RainbowDivider />
       <div className='prose pb-20 mdx'>
         <MDXRemote {...content} />
       </div>
@@ -33,7 +59,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   let paths = [];
 
   for (let dir of dirs) {
-    // Consider only the first .md file per directory
     const postDir = path.join(dirPathToRead, dir);
     const postFiles = fs
       .readdirSync(postDir)
@@ -53,15 +78,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: 'blocking' };
 };
 
-// Define an interface for the static props based on ParsedUrlQuery, with an additional postSlug property
 interface IStaticProps extends ParsedUrlQuery {
   postSlug: string;
 }
 
-// Define a type for the post data
 type Post = {
   post: {
     title: string;
+    date: string;
+    tags: string[];
     content: MDXRemoteSerializeResult;
   };
 };
@@ -73,7 +98,7 @@ export const getStaticProps: GetStaticProps<Post> = async (context) => {
 
     const filePathToRead = path.join(
       process.cwd(),
-      `posts/${postSlug}/${postSlug}.md`
+      `posts/${postSlug}/${postSlug || `index`}.md`
     );
     const fileContent = fs.readFileSync(filePathToRead, { encoding: 'utf-8' });
     const source: any = await serialize(fileContent, {
@@ -85,6 +110,8 @@ export const getStaticProps: GetStaticProps<Post> = async (context) => {
         post: {
           content: source,
           title: source.frontmatter.title,
+          date: source.frontmatter.date,
+          tags: source.frontmatter.tags,
         },
       },
     };

@@ -1,6 +1,10 @@
-import React from 'react';
+import { FC, useState } from 'react';
 
-export default function RainbowDivider() {
+interface Props {
+  size?: string;
+}
+
+const RainbowDivider: FC<Props> = ({ size }) => {
   return (
     <div
       className='aria-hidden my-6 flex h-full w-full select-none items-center justify-center sm:my-4 '
@@ -11,4 +15,6 @@ export default function RainbowDivider() {
       </div>
     </div>
   );
-}
+};
+
+export default RainbowDivider;

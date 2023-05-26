@@ -19,10 +19,8 @@ const BlogCard: FC<Props> = ({
 }): JSX.Element => {
   const [isHovered, setIsHovered] = useState(false);
 
-  // Parse the date string into a Date object
   const parsedDate = new Date(date);
 
-  // Format the date into a human-readable format
   const formattedDate = parsedDate.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
