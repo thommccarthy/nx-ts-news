@@ -1,6 +1,6 @@
 import BlogTag from '@/components/blogs/BlogTag';
 import ExternalLink from '@/components/global/utility/ExternalLink';
-import React from 'react';
+import Image from 'next/image';
 
 const About: React.FC = () => {
   const techILike: string[] = [
@@ -23,6 +23,13 @@ const About: React.FC = () => {
 
       <div className='border-indigo-800 backgroundGlass border-2 px-3 md:px-9 rounded-lg max-w-5xl mx-auto w-100 flex justify-center items-center py-6 md:py-14  shadow-indigo-500 shadow-lg mb-6 md:mb-12'>
         <div className='text-center md:text-left font-bold'>
+          <Image
+            src='/assets/index/Thom_headshot.jpg'
+            alt=''
+            width={200}
+            height={200}
+            className={`rounded-full block mx-auto bgGradientImg md:float-right my-5 px-3`}
+          />
           <p className='text-paragraph'>
             I&apos;m Thom, a <span className='font-bold'>UX Engineer</span> from
             West Philadelphia, crafting responsive, scalable, and aesthetically
@@ -44,8 +51,9 @@ const About: React.FC = () => {
           <p className='text-paragraph'>
             Collaborating with designers and project managers, I focus on
             delivering high-performance products with excellent user experience.
-            My role involves advising on design decisions, validating
-            feasibility, and enhancing the visual appeal of our products.
+            My role involves client and server-side programming, advising on
+            design decisions, validating technical feasibility, and enhancing
+            the visual and functional appeal of our products.
           </p>
 
           <h2 className='mt-5 text-lg md:text-xl font-normal font-fira-code'>

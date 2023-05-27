@@ -8,6 +8,7 @@ interface Props {
   isOpen: boolean;
   openRef: React.RefObject<HTMLButtonElement>;
   closeRef: React.RefObject<HTMLButtonElement>;
+  getLinkAriaCurrent: (path: string) => 'page' | undefined;
 }
 
 export const MobileMenu: FC<Props> = ({
@@ -15,6 +16,7 @@ export const MobileMenu: FC<Props> = ({
   isOpen,
   openRef,
   closeRef,
+  getLinkAriaCurrent,
 }) => {
   const lastLinkRef = useRef<HTMLAnchorElement>(null);
 
@@ -60,6 +62,7 @@ export const MobileMenu: FC<Props> = ({
               className='text-lg custom-nav-link custom-nav-link--header'
               onClick={toggleMenu}
               title='Thom McCarthy | Home'
+              aria-current={getLinkAriaCurrent('/')}
             >
               Home
             </Link>
@@ -70,6 +73,7 @@ export const MobileMenu: FC<Props> = ({
               className='text-lg custom-nav-link custom-nav-link--header'
               onClick={toggleMenu}
               title='Thom McCarthy | Blog'
+              aria-current={getLinkAriaCurrent('/blogs')}
             >
               Blog
             </Link>
@@ -81,6 +85,7 @@ export const MobileMenu: FC<Props> = ({
               ref={lastLinkRef}
               onClick={toggleMenu}
               title='Thom McCarthy | About'
+              aria-current={getLinkAriaCurrent('/about')}
             >
               About
             </Link>

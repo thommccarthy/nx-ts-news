@@ -3,7 +3,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { MobileMenu } from './MobileMenu';
 
-const Navbar: React.FC = () => {
+interface Props {
+  getLinkAriaCurrent: (path: string) => 'page' | undefined;
+}
+
+const Navbar: React.FC<Props> = ({ getLinkAriaCurrent }) => {
   const [isOpen, setIsOpen] = useState(false);
   const openRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -26,11 +30,15 @@ const Navbar: React.FC = () => {
 
   return (
     <div className='border-t-yellow-200 d-block border-t-4 glassWrapper sticky top-0 z-50 mb-5 md:mb-11'>
-      <nav className='mx-auto py-6 px-3 flex justify-between align-sub max-w-4xl'>
+      <nav
+        className='mx-auto py-6 px-3 flex justify-between align-sub max-w-4xl'
+        aria-label='primary'
+      >
         <Link
           href='/'
           className='font-space-mono font-black text-2xl'
           title='Thom McCarthy | Home'
+          aria-current={getLinkAriaCurrent('/')}
         >
           <Image
             src='/assets/global/web-blog-logo.svg'
@@ -68,6 +76,7 @@ const Navbar: React.FC = () => {
               href='/blogs'
               className='text-lg custom-nav-link custom-nav-link--header'
               title='Thom McCarthy | Blog'
+              aria-current={getLinkAriaCurrent('/blogs')}
             >
               Blog
             </Link>
@@ -77,6 +86,7 @@ const Navbar: React.FC = () => {
               href='/about'
               className='text-lg custom-nav-link custom-nav-link--header'
               title='Thom McCarthy | About'
+              aria-current={getLinkAriaCurrent('/about')}
             >
               About
             </Link>
@@ -89,6 +99,7 @@ const Navbar: React.FC = () => {
           isOpen={isOpen}
           openRef={openRef}
           closeRef={closeRef}
+          getLinkAriaCurrent={getLinkAriaCurrent}
         />
       )}
     </div>

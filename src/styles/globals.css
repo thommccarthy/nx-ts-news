@@ -196,3 +196,10 @@ a:hover {
 .text-paragraph {
   @apply text-lg md:text-xl md:pr-5 mb-4;
 }
+
+.bgGradientImg {
+  padding: 5px;
+  box-shadow: 0 0 0 7px #4bbcdf;
+  box-shadow: 0 0 0 3px #fde68a;
+  box-shadow: 0 0 0 3px #c8c8c8;
+}

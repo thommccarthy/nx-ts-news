@@ -2,7 +2,11 @@ import React from 'react';
 import Link from 'next/link';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
-const Footer: React.FC = () => {
+interface Props {
+  getLinkAriaCurrent: (path: string) => 'page' | undefined;
+}
+
+const Footer: React.FC<Props> = ({ getLinkAriaCurrent }) => {
   return (
     <footer className='backgroundGlass py-5'>
       <div className='max-w-4xl mx-auto flex justify-center items-center md:justify-between px-3 py-10 flex-col md:flex-row'>
@@ -33,12 +37,20 @@ const Footer: React.FC = () => {
         <nav aria-label='footer'>
           <ul className='flex justify-end'>
             <li className=' mr-3'>
-              <Link href='/blogs' className='custom-nav-link text-lg'>
+              <Link
+                href='/blogs'
+                className='custom-nav-link text-lg'
+                aria-current={getLinkAriaCurrent('/blogs')}
+              >
                 Blog
               </Link>
             </li>
             <li className=''>
-              <Link href='/about' className='custom-nav-link text-lg'>
+              <Link
+                href='/about'
+                className='custom-nav-link text-lg'
+                aria-current={getLinkAriaCurrent('/about')}
+              >
                 About
               </Link>
             </li>
