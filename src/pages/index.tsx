@@ -30,9 +30,9 @@ const Home: NextPage<Props> = ({ posts }) => {
       <h1 className=' font-black text-center mb-1 md:mb-3 font-fira-code'>
         <span className='retro'>Thom McCarthy</span>
       </h1>
-      <h2 className='font-normal text-center mb-8 md:mb-12'>UX Engineer</h2>
+      <h2 className='font-normal text-center mb-8 md:mb-11'>UX Engineer</h2>
       {/* about */}
-      <div className='border-indigo-800 backgroundGlass border-2 px-3 md:px-9 rounded-lg max-w-4xl mx-auto w-100 flex justify-center items-center py-8  shadow-indigo-500 shadow-lg mb-6 md:mb-12'>
+      <div className='border-indigo-800 backgroundGlass border-2 px-3 md:px-9 rounded-lg max-w-4xl mx-auto w-100 flex justify-center items-center py-8  shadow-indigo-500 shadow-lg mb-6 md:mb-8'>
         <div className='text-center md:text-left'>
           <p className='text-lg md:text-xl font-normal md:pr-5'>
             I{`'`}m a <span className='font-black'>UX Engineer</span> based in{' '}

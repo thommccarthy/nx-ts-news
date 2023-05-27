@@ -28,7 +28,7 @@ const Blogs: NextPage<Props> = ({ posts }) => {
         <span className='retro'>Blog</span>
       </h1>
       <div
-        className='backgroundGlass font-bold text-xl mx-auto flex justify-center py-4 md:py-6 px-5 mt-5 mb-14 rounded-lg max-w-3xl border-2 border-sky-300  hover:bottom-10
+        className='backgroundGlass font-bold text-xl mx-auto flex justify-center py-4 md:py-6 px-5 mt-5 mb-9 rounded-lg max-w-3xl border-2 border-sky-300  hover:bottom-10
          shadow-indigo-900 shadow-lg transition-all duration-300 ease-in-out '
       >
         <p className='text-center font-normal'>

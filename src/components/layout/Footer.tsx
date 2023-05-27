@@ -19,7 +19,7 @@ const Footer: React.FC<Props> = ({ getLinkAriaCurrent }) => {
               title='Github | Thom McCarthy'
               aria-label='Github'
             >
-              <FaGithub className='text-3xl md:text-5xl text-white hover:text-seascape' />
+              <FaGithub className='text-3xl md:text-5xl text-white hover:text-sky-300 transition-all' />
             </a>
           </li>
           <li>
@@ -30,7 +30,7 @@ const Footer: React.FC<Props> = ({ getLinkAriaCurrent }) => {
               title='LinkedIn | Thom McCarthy'
               aria-label='LinkedIn'
             >
-              <FaLinkedin className='text-3xl md:text-5xl text-white hover:text-seascape' />
+              <FaLinkedin className='text-3xl md:text-5xl text-white hover:text-sky-300 transition-all' />
             </a>
           </li>
         </ul>

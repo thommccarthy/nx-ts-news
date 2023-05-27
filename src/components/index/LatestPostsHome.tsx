@@ -9,7 +9,7 @@ interface Props {
 
 const LatestPostsHome: FC<Props> = ({ posts }) => {
   return (
-    <div className='mb-5'>
+    <div className='mb-5 mt-2'>
       <h2 className='text-center mb-8 md:mb-12'>Latest Posts</h2>
       <ul className='max-w-5xl mx-auto my-9 grid grid-cols-1 md:grid-cols-2 gap-4'>
         {posts.slice(0, 3).map((post, index) => (

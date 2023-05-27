@@ -41,6 +41,7 @@ module.exports = {
             },
             p: {
               color: theme('colors.gray.100'),
+              fontSize: theme('fontSize.lg'),
             },
             pre: {
               border: '2px solid #fbb6ce',
