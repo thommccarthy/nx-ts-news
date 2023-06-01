@@ -13,8 +13,10 @@ import { serialize } from 'next-mdx-remote/serialize';
 import BlogTag from '@/components/blogs/BlogTag';
 import RainbowDivider from '@/components/global/decorative/RainbowDivider';
 import useFormattedDate from '@/hooks/useFormattedDate';
+import CodePenEmbed from '../../components/blogs/MDX/CodePenEmbed';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
+const components = { CodePenEmbed };
 
 const SinglePage: NextPage<Props> = ({ post }) => {
   const { content, title, date, tags } = post;
@@ -38,7 +40,7 @@ const SinglePage: NextPage<Props> = ({ post }) => {
 
       <RainbowDivider />
       <div className='prose pb-20 mdx'>
-        <MDXRemote {...content} />
+        <MDXRemote {...content} components={components} />
       </div>
     </div>
   );
