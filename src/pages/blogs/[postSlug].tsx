@@ -14,9 +14,10 @@ import BlogTag from '@/components/blogs/BlogTag';
 import RainbowDivider from '@/components/global/decorative/RainbowDivider';
 import useFormattedDate from '@/hooks/useFormattedDate';
 import CodePenEmbed from '../../components/blogs/MDX/CodePenEmbed';
+import NextImage from '@/components/blogs/MDX/NextImage';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
-const components = { CodePenEmbed };
+const components = { CodePenEmbed, NextImage };
 
 const SinglePage: NextPage<Props> = ({ post }) => {
   const { content, title, date, tags } = post;
