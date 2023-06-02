@@ -9,8 +9,6 @@ tags: [Accessibility, HTML, UX]
 
 As designers, developers, and accessibility advocates, it's our responsibility to provide an experience that is not just delightful, but also accessible to all users. One commonly overlooked area of web accessibility lies in the design and implementation of product cards, particularly when it comes to adjacent links with the same destination.
 
-<NextImage src='/assets/blogs/blogimage.jpg' alt=''/>
-
 ## Identifying the Issue
 
 The design pattern in question often appears in product listings or cards, where you'd see an image link and a text link side-by-side, both leading to the same destination. While this might seem user-friendly at first glance, it poses significant issues for keyboard and screen reader users, particularly when these cards are rendered in a large list.
