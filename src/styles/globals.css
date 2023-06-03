@@ -165,10 +165,18 @@ a:hover {
   transition: opacity 0.2s ease-in-out, height 0.2s ease-in-out;
 }
 
-.custom-nav-link:hover::after,
-.custom-nav-link:focus::after {
+.custom-nav-link:hover::after {
   opacity: 1;
   height: 6px;
+}
+
+.custom-nav-link:focus {
+  @apply outline outline-sky-300 outline-4;
+}
+
+nav a:focus,
+button:focus {
+  @apply outline outline-sky-300 outline-2 outline-offset-4;
 }
 
 .glassWrapper {

@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import {
   NextPage,
   GetStaticProps,
@@ -15,6 +16,7 @@ import RainbowDivider from '@/components/global/decorative/RainbowDivider';
 import useFormattedDate from '@/hooks/useFormattedDate';
 import CodePenEmbed from '../../components/blogs/MDX/CodePenEmbed';
 import NextImage from '@/components/blogs/MDX/NextImage';
+import BackToTop from '@/components/global/utility/BackToTop';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 const components = { CodePenEmbed, NextImage };
@@ -22,10 +24,15 @@ const components = { CodePenEmbed, NextImage };
 const SinglePage: NextPage<Props> = ({ post }) => {
   const { content, title, date, tags } = post;
   const formattedDate = useFormattedDate(date);
+  const headingRef = useRef<HTMLHeadingElement>(null);
 
   return (
     <div className='max-w-4xl mx-auto px-5 my-3'>
-      <h1 className='font-extrabold text-center text-3xl md:text-4xl mb-4 retro'>
+      <h1
+        className='font-extrabold text-center text-3xl md:text-4xl mb-4 retro'
+        ref={headingRef}
+        tabIndex={-1}
+      >
         {title}
       </h1>
       <p className='text-sm md:text-base font-black mb-5 max-w-max px-3 py-1 text-center mx-auto rounded-md'>
@@ -42,6 +49,7 @@ const SinglePage: NextPage<Props> = ({ post }) => {
       <RainbowDivider />
       <div className='prose pb-20 mdx'>
         <MDXRemote {...content} components={components} />
+        <BackToTop refToScrollTo={headingRef} />
       </div>
     </div>
   );
