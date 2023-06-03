@@ -41,7 +41,7 @@ const Navbar: React.FC<Props> = ({ getLinkAriaCurrent }) => {
           aria-current={getLinkAriaCurrent('/')}
         >
           <Image
-            src='/assets/global/web-blog-logo.svg'
+            src='/assets/global/thom-mccarthy-logo.svg'
             alt='Thom McCarthy'
             width={250}
             height={250}
