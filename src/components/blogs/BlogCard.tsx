@@ -41,7 +41,7 @@ const BlogCard: FC<Props> = ({
           <p className='text-center md:text-left text-sm md:text-base font-black mb-3'>
             {formattedDate}
           </p>
-          <ul className='tags flex justify-center md:justify-start gap-2 mb-5'>
+          <ul className='tags flex flex-wrap justify-center md:justify-start gap-2 mb-5'>
             {tags.map((tag) => (
               <li key={tag}>
                 <BlogTag tagName={tag} />

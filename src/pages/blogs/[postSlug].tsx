@@ -31,7 +31,7 @@ const SinglePage: NextPage<Props> = ({ post }) => {
       <p className='text-sm md:text-base font-black mb-5 max-w-max px-3 py-1 text-center mx-auto rounded-md'>
         {formattedDate}
       </p>
-      <ul className='tags flex justify-center items-center mx-auto gap-2 mb-5'>
+      <ul className='tags flex flex-wrap justify-center items-center mx-auto gap-2 mb-5'>
         {tags.map((tag) => (
           <li key={tag}>
             <BlogTag tagName={tag} />
