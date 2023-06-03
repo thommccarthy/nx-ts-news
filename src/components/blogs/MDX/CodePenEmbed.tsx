@@ -29,20 +29,30 @@ const CodePenEmbed: React.FC<CodePenEmbedProps> = ({
   }, []);
 
   return (
-    <p
-      ref={ref}
-      className='codepen'
-      data-height={height}
-      data-theme-id={themeId}
-      data-default-tab={defaultTab}
-      data-user={user}
-      data-slug-hash={slugHash}
-    >
-      See the Pen
-      <a href={`https://codepen.io/${user}/pen/${slugHash}`}>{title}</a> by{' '}
-      {user} (<a href={`https://codepen.io/${user}`}>@{user}</a>) on
-      <a href='https://codepen.io'>CodePen</a>.
-    </p>
+    <>
+      <p
+        ref={ref}
+        className='codepen'
+        data-height={height}
+        data-theme-id={themeId}
+        data-default-tab={defaultTab}
+        data-user={user}
+        data-slug-hash={slugHash}
+      >
+        See the Pen
+        <a href={`https://codepen.io/${user}/pen/${slugHash}`}>
+          {title}
+        </a> by {user} (<a href={`https://codepen.io/${user}`}>@{user}</a>) on
+        <a href='https://codepen.io'>CodePen</a>.
+      </p>
+      <a
+        href={`https://codepen.io/${user}/full/${slugHash}`}
+        target='_blank'
+        className='flex text-center mt-4 mx-auto max-w-max '
+      >
+        View Example in new tab
+      </a>
+    </>
   );
 };
 
