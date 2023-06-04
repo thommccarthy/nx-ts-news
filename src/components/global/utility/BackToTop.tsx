@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { FiArrowUpCircle } from 'react-icons/fi';
+import { transform } from 'typescript';
 
 type Props = {
   refToScrollTo: React.RefObject<HTMLElement>;
@@ -13,7 +14,7 @@ const BackToTop: FC<Props> = ({ refToScrollTo }) => {
 
   return (
     <button
-      className='mx-auto block text-sky-100 hover:text-sky-300 text-center mt-16 px-2 py-1 font-bold'
+      className='mx-auto block text-yellow-200 hover:text-sky-300 text-center mt-16 px-2 py-1 font-bold'
       onClick={scrollToTop}
       aria-label='Back To Top'
     >

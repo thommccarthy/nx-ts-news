@@ -3,7 +3,7 @@ title: 'Reducing Redundant Links in Cards: Improving Web Accessibility'
 description: 'Learn how to improve the accessibility of adjacent links in elements such as cards.'
 slug: redundant-links-in-cards
 meta: 'Learn how to improve the accessibility of adjacent links in elements such as cards.'
-date: '2023-06-05 12:00:00'
+date: '2023-06-02 12:00:00'
 tags: [Accessibility, HTML, UX, Javscript]
 ---
 
