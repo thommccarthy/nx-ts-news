@@ -25,10 +25,8 @@ module.exports = {
           css: {
             color: theme('colors.white'),
             a: {
-              color: theme('colors.yellow.200'),
-              '&:hover': {
-                color: theme('colors.yellow.400'),
-              },
+              color: theme('colors.white'),
+              fontWeight: `bold`,
             },
             h1: {
               color: theme('colors.white'),
@@ -42,6 +40,7 @@ module.exports = {
             p: {
               color: theme('colors.gray.100'),
               fontSize: theme('fontSize.lg'),
+              lineHeight: `2.2`,
             },
             pre: {
               border: '2px solid #fbb6ce',

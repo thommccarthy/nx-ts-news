@@ -80,6 +80,8 @@ p {
 a {
   font-weight: 400;
   color: white;
+  text-decoration-thickness: 4px;
+  transition: 0.3s;
 }
 
 .custom-link-2 {
@@ -120,7 +122,21 @@ a {
 }
 
 .prose p code {
-  @apply text-yellow-200;
+  @apply font-semibold;
+  @apply bg-indigo-900;
+  @apply text-white;
+  @apply rounded-md;
+  @apply py-1 px-3;
+  @apply shadow-indigo-900 shadow-sm;
+  @apply text-lg;
+}
+
+.prose p code::before {
+  content: '';
+}
+
+.prose p code::after {
+  content: '';
 }
 
 p a {
