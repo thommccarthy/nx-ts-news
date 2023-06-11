@@ -17,9 +17,10 @@ import useFormattedDate from '@/hooks/useFormattedDate';
 import CodePenEmbed from '../../components/blogs/MDX/CodePenEmbed';
 import NextImage from '@/components/blogs/MDX/NextImage';
 import BackToTop from '@/components/global/utility/BackToTop';
+import ExternalLink from '@/components/global/utility/ExternalLink';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
-const components = { CodePenEmbed, NextImage };
+const components = { CodePenEmbed, NextImage, ExternalLink };
 
 const SinglePage: NextPage<Props> = ({ post }) => {
   const { content, title, date, tags } = post;

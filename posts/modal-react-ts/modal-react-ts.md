@@ -11,11 +11,11 @@ Creating web applications with accessibility in mind is essential. It's about ma
 
 I've found myself frequently dealing with modals in my work recently, and I thought it'd be helpful to share what I've learned. Not just for others, but also as a way for me to reinforce my understanding and have a ready reference for the future.
 
-So, in this guide, I'll share how to create accessible modal dialogs using React and TypeScript. We'll build a hands-on example including custom React Hooks and reusable components.
+So, in this guide, I'll share how to create accessible modal dialogs using React and TypeScript. We'll build a hands-on example including building our own custom React Hook.
 
 ## Prerequisites
 
-Before proceeding, ensure that you have Node.js and npm installed on your machine. We'll use Vite, a modern frontend build tool developed by Evan You, the creator of Vue.js. It's simple, efficient, and perfect for our use case. These techniques should apply to any modern React framework or app developed using functional components. Also, we will use TypeScript, a statically typed superset of JavaScript that provides optional static typing. This guide assumes that you do have a basic understanding of React (and React Hooks), TypeScript, and CSS.
+Before proceeding, ensure that you have <ExternalLink href='https://nodejs.org/'>Node.js</ExternalLink> and <ExternalLink href='https://npmjs.com/'>npm</ExternalLink> installed on your machine. We'll use <ExternalLink href='https://vitejs.dev/guide/'>Vite</ExternalLink>, a modern frontend build tool developed by Evan You, the creator of Vue.js. It's simple, efficient, and perfect for our use case. These techniques should apply to any modern React framework or app developed using functional, client components (these specific techniques are not compatible with React's new <ExternalLink href='https://react.dev/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023#react-server-components'>Server Components</ExternalLink>, though core accessibility requirements are the same). Also, we will use <ExternalLink href='https://www.typescriptlang.org/'>Typescript</ExternalLink>, a statically typed superset of JavaScript that provides optional static typing. This guide assumes that you do have a basic understanding of React (and React Hooks), TypeScript, and CSS.
 
 ## Setting up the Project
 
@@ -43,7 +43,8 @@ Start the development server:
 npm run dev
 ```
 
-You should see your application running on http://localhost:5713.
+You should see your application running on http://localhost:5713
+.
 
 Let's start off by setting up the base styles for our application in `src/index.css`.
 
@@ -116,7 +117,7 @@ We'll also need some specific styles for our modal in `src/components/Modal.css`
 
 ## Building the Modal Component
 
-We'll start by creating a simple modal dialog. In your components directory, create a new file called Modal.tsx:
+We'll start by creating a simple modal dialog. In your components directory, create a new file called `Modal.tsx`:
 
 ```
 // src/components/Modal.tsx
@@ -137,7 +138,7 @@ const Modal = ({ showModal, onClose, children }: ModalProps) => {
 
   return (
     <div onClick={onClose} className='modal-backdrop'>
-      <div className='modal-content' onClick={e.stopPropogation()}>
+      <div className='modal-content' onClick={e.stopPropagation()}>
         <button onClick={onClose}>
           Close
         </button>
@@ -150,9 +151,9 @@ const Modal = ({ showModal, onClose, children }: ModalProps) => {
 export default Modal;
 ```
 
-This is a simple modal component that renders its children and displays a Close button. It only renders if showModal is true. We also pass an onClose function that will be called when the user clicks the Close button or the backdrop. Make sure to add the stopPropogation() call to the modal content to prevent the backdrop click event from triggering the onClose function.
+This is a simple modal component that renders its children and displays a Close button. It only renders if `showModal` is true. We also pass an `onClose` function that will be called when the user clicks the Close button or the backdrop. Make sure to add the `stopPropagation()` call to the modal content to prevent the backdrop click event from triggering the `onClose` function.
 
-Now, let's use this component in our App.tsx:
+Now, let's use this component in our `App.tsx`:
 
 ```
 // src/App.tsx
@@ -223,7 +224,7 @@ Now let's make our modal more accessible. First, we'll add some ARIA roles and p
 
 ARIA roles and properties are used to improve accessibility by providing additional semantics about the structure of your elements and their behaviors. Some are static and some will need to be updated as they react to user events.
 
-Update the Modal.tsx component with the following code:
+Update the `Modal.tsx` component with the following code:
 
 ```
 // src/components/Modal.tsx
@@ -283,15 +284,15 @@ const Modal = ({
 export default Modal;
 ```
 
-In this code, we added role="dialog" to the modal's container div to let assistive technologies know that it's a dialog. We also added aria-modal="true" to inform assistive technologies that the content behind the modal is inaccessible when the modal is open. We have also added an aria-labelledby to reference the modal's heading. Alternatively, you could use aria-label to provide a static, descriptive label for the modal.
+In this code, we added `role="dialog"` to the modal's container div to let assistive technologies know that it's a dialog. We also added `aria-modal="true"` to inform assistive technologies that the content behind the modal is inaccessible when the modal is open. We have also added an aria-labelledby to reference the modal's heading. Alternatively, you could use aria-label to provide a static, descriptive label for the modal.
 
-We've added a new prop called triggerElementRef to the ModalProps type. This will be used to return focus to the element that triggered the modal when it's closed. We've also added a modalHeadingRef prop to reference the modal's heading. This will be used to set the aria-labelledby attribute on the modal.
+We've added a new prop called `triggerElementRef` to the `ModalProps` type. This will be used to return focus to the element that triggered the modal when it's closed. We've also added a `modalHeadingRef` prop to reference the modal's heading. This will be used to set the `aria-labelledby` attribute on the modal.
 
-We've also added a new state variable called labelledbyId to store the id of the modal's heading. We'll use this to set the aria-labelledby attribute on the modal.
+We've also added a new state variable called `labelledbyId` to store the id of the modal's heading. We'll use this to set the `aria-labelledby` attribute on the modal.
 
-Next, we've added a useEffect hook to set the labelledbyId state variable when the modal is opened. We also added a check to return focus to the trigger element when the modal is closed.
+Next, we've added a `useEffect` hook to set the `labelledbyId` state variable when the modal is opened. We also added a check to return focus to the trigger element when the modal is closed.
 
-We will also need to update our App.tsx with the following code:
+We will also need to update our `App.tsx` with the following code:
 
 ```
 // src/App.tsx
@@ -364,13 +365,13 @@ export default App;
 
 In this code, we've added a new ref called modalHeadingRef to reference the modal's heading. We've also added `aria-haspopup="dialog"` and `aria-expanded={showModal ? 'true' : 'false'}` to the Open Modal button. This will let assistive technologies know that the button opens a dialog and whether or not the dialog is open.
 
-Finally, we are passing the triggerElementRef and modalHeadingRef to the Modal component.
+Finally, we are passing the `triggerElementRef` and `modalHeadingRef` to the Modal component.
 
 ### Trapping Focus
 
-Next, we want to ensure that when our modal is open, users can't interact with the content behind it. This is especially important for keyboard and screen reader users. Let's create a hook called useFocusTrap.
+Next, we want to ensure that when our modal is open, users can't interact with the content behind it. This is especially important for keyboard and screen reader users. Let's create a hook called `useFocusTrap`.
 
-Create a new file in your hooks directory called useFocusTrap.ts and add the following code:
+Create a new file in your hooks directory called `useFocusTrap.ts` and add the following code:
 
 ```
 // src/hooks/useFocusTrap.ts
@@ -419,11 +420,11 @@ const useFocusTrap = (ref: React.RefObject<HTMLDivElement>) => {
 export default useFocusTrap;
 ```
 
-The FOCUSABLE_ELEMENTS constant is a list of all the elements that can receive focus. We'll use this to find all the focusable elements within the modal. It is a comma-separated list of CSS selectors.
+The `FOCUSABLE_ELEMENTS` constant is a list of all the elements that can receive focus. We'll use this to find all the focusable elements within the modal. It is a comma-separated list of CSS selectors.
 
-This hook uses the useEffect hook to add an event listener for the 'keydown' event when the modal is open. The event listener checks if the 'Tab' key was pressed, and if so, moves the focus accordingly. If the 'Shift' key is pressed along with the 'Tab' key, the focus will move backwards. Otherwise, the focus will move forward. The hook also returns a cleanup function to remove the event listener when the modal is closed. This ensures that the event listener is only active when the modal is open.
+This hook uses the `useEffect` hook to add an event listener for the 'keydown' event when the modal is open. The event listener checks if the 'Tab' key was pressed, and if so, moves the focus accordingly. If the 'Shift' key is pressed along with the 'Tab' key, the focus will move backwards. Otherwise, the focus will move forward. The hook also returns a cleanup function to remove the event listener when the modal is closed. This ensures that the event listener is only active when the modal is open.
 
-Next, update your Modal.tsx to use this new hook:
+Next, update your `Modal.tsx` to use this new hook:
 
 ```
 // src/components/Modal.tsx
@@ -486,12 +487,12 @@ const Modal = ({
 export default Modal;
 ```
 
-With these updates, our modal is much more accessible. However, we can go one step further and make it even more reusable.
+With these updates, our modal is much more accessible.
 
 ## Conclusion
 
-Developing accessible web applications is critical in ensuring that all users, including those with disabilities, can use your applications effectively. In this post, we walked you through the process of creating an accessible modal dialog using Vite, React, and TypeScript. We discussed how to set up a Vite project, build a simple modal dialog, enhance its accessibility, and refactor it into a reusable component.
+In this post, we walked through the process of creating an accessible modal dialog using Vite, React, and TypeScript. We discussed how to set up a Vite project, build a simple modal dialog and enhance its accessibility.
 
-While the principles of accessibility can be complex, libraries such as React, along with modern JavaScript tools like Vite and TypeScript, can make the task of creating accessible web applications more manageable. It's our responsibility as developers to ensure our applications are accessible to everyone. By implementing accessible modal dialogs as described in this post, you're taking a nice step towards achieving that goal.
+While the principles of accessibility can be complex, libraries such as React, along with modern JavaScript tools like Vite and TypeScript, can make the task of creating accessible web applications more manageable. It's our responsibility as developers to ensure our applications are accessible to everyone. By implementing accessible modal dialogs as described in this post, you're taking a positive step towards achieving that goal. My goal is to make certain that any discussions around designing web User Interfaces include accessibility as a primary consideration.
 
-If there's something you feel that I missed please file an issue on the [GitHub repo](https://github.com/thommccarthy/react-modal-ts) and I'll take a look. Thanks for reading!
+If there's something you feel that I missed please file an issue on the <ExternalLink href='https://github.com/thommccarthy/react-modal-ts'>Github Repo</ExternalLink> with some reference material and I'll take a look. Thanks for reading!
