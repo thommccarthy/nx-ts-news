@@ -18,9 +18,15 @@ import CodePenEmbed from '../../components/blogs/MDX/CodePenEmbed';
 import NextImage from '@/components/blogs/MDX/NextImage';
 import BackToTop from '@/components/global/utility/BackToTop';
 import ExternalLink from '@/components/global/utility/ExternalLink';
+import CodeBlockFocusWrapper from '@/components/blogs/MDX/CodeBlockFocusWrapper';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
-const components = { CodePenEmbed, NextImage, ExternalLink };
+const components = {
+  CodePenEmbed,
+  NextImage,
+  ExternalLink,
+  CodeBlockFocusWrapper,
+};
 
 const SinglePage: NextPage<Props> = ({ post }) => {
   const { content, title, date, tags } = post;

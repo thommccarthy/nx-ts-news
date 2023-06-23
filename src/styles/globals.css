@@ -19,17 +19,10 @@ body {
   background-color: rgb(1, 1, 18);
   background-image: linear-gradient(
       0deg,
-      rgba(255, 255, 255, 0.05) 1px,
+      rgba(99, 101, 241, 0.189) 1px,
       transparent 1px
     ),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-image: linear-gradient(
-      0deg,
-      rgba(99, 101, 241, 0.325) 1px,
-      transparent 1px
-    ),
-    linear-gradient(90deg, rgba(99, 101, 241, 0.327) 1px, transparent 1px);
-
+    linear-gradient(90deg, rgba(99, 101, 241, 0.184) 1px, transparent 1px);
   background-size: 20px 20px;
 }
 
@@ -129,6 +122,7 @@ a {
   @apply py-1 px-3;
   @apply shadow-indigo-900 shadow-sm;
   @apply text-lg;
+  @apply bg-opacity-60;
 }
 
 .prose p code::before {

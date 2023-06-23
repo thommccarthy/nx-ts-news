@@ -40,7 +40,7 @@ module.exports = {
             p: {
               color: theme('colors.gray.100'),
               fontSize: theme('fontSize.lg'),
-              lineHeight: `2.2`,
+              lineHeight: `2`,
             },
             pre: {
               border: '2px solid #fbb6ce',
