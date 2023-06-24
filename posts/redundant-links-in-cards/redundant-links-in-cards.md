@@ -4,7 +4,7 @@ description: 'Learn how to improve the accessibility of adjacent links in elemen
 slug: redundant-links-in-cards
 meta: 'Learn how to improve the accessibility of adjacent links in elements such as cards.'
 date: '2023-06-02 12:00:00'
-tags: [Accessibility, HTML, UX, Javscript]
+tags: [Accessibility, HTML, UX, Javascript]
 ---
 
 When developing accessible web applications, it's essential to pay attention to common patterns that might hinder accessibility. One pattern we often come across is the redundancy of links in card components. This redundancy, while seemingly innocuous for sighted mouse users, could potentially be an obstacle for keyboard and screen reader users.
@@ -32,7 +32,7 @@ Here, the image and button within each card link to the same URL. For keyboard a
 
 ## The Preferred HTML Solution
 
-The optimal solution for this issue involves wrapping the card's content within a single a tag, like so:
+The optimal solution for this issue involves wrapping the card's content within a single `a` tag, like so:
 
 ```
   <ul class='cards-wrapper'>
@@ -53,7 +53,7 @@ This fix eliminates the redundancy, making navigation smoother for all users. Ho
 
 ## JavaScript Alternative
 
-When the HTML solution doesn't quite fit, we can offer an alternative using JavaScript. Here, the a tag wrapping the image is replaced with a div, while storing the URL in a data-href attribute:
+When the HTML solution doesn't quite fit, we can offer an alternative using JavaScript. Here, the a tag wrapping the image is replaced with a `div`, while storing the URL in a `data-href` attribute:
 
 ```
   <ul class='cards-wrapper'>
@@ -70,7 +70,7 @@ When the HTML solution doesn't quite fit, we can offer an alternative using Java
   </ul>
 ```
 
-The div with the image-link class holds the image, and JavaScript handles the click event:
+The div with the `image-link` class holds the image, and JavaScript handles the click event:
 
 ```
 let imageLinks = document.querySelectorAll('.image-link');
@@ -86,9 +86,9 @@ if (imageLinks) {
 }
 ```
 
-By making this adjustment, clicking on the div that contains the image will redirect to the specified URL. Meanwhile, keyboard users retain an efficient navigation with a single tab-stop per card.
+By making this adjustment, clicking on the `div` that contains the image will redirect to the specified URL. Meanwhile, keyboard users retain an efficient navigation with a single tab-stop per card.
 
-To convey the interactivity to sighted mouse users, you would need to apply cursor: pointer to the .image-link in your CSS.
+To convey the interactivity to sighted mouse users, you would need to apply `cursor: pointer` to the `.image-link` in your CSS.
 
 ```
 .image-link {
@@ -98,4 +98,4 @@ To convey the interactivity to sighted mouse users, you would need to apply curs
 
 ## Conclusion
 
-Enhancing web accessibility often involves addressing small details that may otherwise be easily overlooked. By removing redundancy in our card design, we provide a smoother navigation experience for keyboard and screen reader users, aligning closer with WCAG guidelines. Whether it's modifying HTML structures or utilizing JavaScript, remember that each step toward a more accessible web is a step in the right direction.
+Perfecting web accessibility often lies in the details that can easily be missed. By eradicating redundancy from our card design, we're not just complying with WCAG guidelines — we're forging a smoother navigation experience for keyboard and screen reader users. While changing HTML structures or using JavaScript may seem like small steps, each stride contributes immensely to a more accessible web. You can check out a hands-on [CodePen Collection](https://codepen.io/collection/kNpmZV) I've put together that showcases the issues and solutions discussed here.

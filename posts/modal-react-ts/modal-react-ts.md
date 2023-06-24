@@ -3,7 +3,7 @@ title: 'Creating Accessible Modal Dialogs with React and TypeScript'
 description: 'Delve into the intricacies of developing accessible modal dialogs using the power of React, and TypeScript. This comprehensive guide includes examples and refactoring techniques.'
 slug: modal-react-ts
 meta: 'Uncover the process of creating accessible modal dialogs with Vite, React, and TypeScript. Understand the benefits of reusable components and hooks in refactoring your code.'
-date: '2023-06-11 12:00:00'
+date: '2023-06-24 12:00:00'
 tags: [Accessibility, React, TypeScript, Hooks]
 ---
 
@@ -11,11 +11,11 @@ Creating web applications with a focus on accessibility is not just a nice-to-ha
 
 In my recent work, modals have been a recurrent theme. I thought it would be beneficial to not only share my discoveries but also to solidify my understanding and have a personal reference handy for the future.
 
-In this guide, I'll walk you through creating an accessible modal dialog using React and TypeScript. We'll dive into a practical example, including the construction of our very own custom React Hook.
+In this guide, I'll walk you through creating an accessible modal dialog using React and TypeScript. We'll dive into a practical example, including the construction of a custom React Hook.
 
 ## Prerequisites
 
-Before we jump in, there are some prerequisites. Make sure you have <ExternalLink href='https://nodejs.org/'>Node.js</ExternalLink> and <ExternalLink href='https://npmjs.com/'>npm</ExternalLink> installed on your machine. We'll be using <ExternalLink href='https://vitejs.dev/guide/'>Vite</ExternalLink>, a modern and efficient frontend build tool brought to you by Evan You, the creator of Vue.js. It's streamlined, fast, and perfect for our use case. The techniques demonstrated here are applicable to any modern React project using functional, client components (note that these specific techniques aren't compatible with React's new <ExternalLink href='https://react.dev/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023#react-server-components'>Server Components</ExternalLink>, although the core accessibility requirements still apply). Furthermore, we'll be employing <ExternalLink href='https://www.typescriptlang.org/'>Typescript</ExternalLink>, a statically-typed superset of JavaScript that introduces optional static typing to the language. This guide presumes you have a foundational understanding of React (and React Hooks), TypeScript, and CSS.
+Before we jump in, there are some prerequisites. Make sure you have <ExternalLink href='https://nodejs.org/'>Node.js</ExternalLink> and <ExternalLink href='https://npmjs.com/'>npm</ExternalLink> installed on your machine. We'll be using <ExternalLink href='https://vitejs.dev/guide/'>Vite</ExternalLink>, a modern frontend build tool brought to you by Evan You, the creator of Vue.js. It's streamlined, fast, and perfect for our use case. The techniques demonstrated here are applicable to any modern React project using functional, client components (note that these specific techniques aren't compatible with React's new <ExternalLink href='https://react.dev/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023#react-server-components'>Server Components</ExternalLink>, although the core accessibility requirements still apply). Furthermore, we'll be employing <ExternalLink href='https://www.typescriptlang.org/'>Typescript</ExternalLink>, a statically-typed superset of JavaScript that introduces optional static typing to the language. This guide presumes you have a foundational understanding of React (and React Hooks), TypeScript, and CSS.
 
 ## Setting up the Project
 
@@ -138,7 +138,7 @@ const Modal = ({ showModal, onClose, children }: ModalProps) => {
 
   return (
     <div className='modal-backdrop' onClick={onClose}>
-      <div className='modal-content' onClick={e.stopPropagation()}>
+      <div className='modal-content' onClick={(event) => event.stopPropagation()}>
         <button onClick={onClose}>
           Close
         </button>
@@ -151,9 +151,9 @@ const Modal = ({ showModal, onClose, children }: ModalProps) => {
 export default Modal;
 ```
 
-Here's a basic modal component we'll be working with. It renders its children and includes a Close button, all of which only appear if showModal is set to true. We're also incorporating an onClose function, which is executed when the user clicks on either the Close button or the backdrop. Be sure to add e.stopPropagation() to the click event on the modal-content class to avoid unintentionally triggering the onClose function.
+Here's a basic modal component we'll be working with. It renders its children and includes a Close button, all of which only appear if showModal is set to true. We're also incorporating an `onClose` function, which is executed when the user clicks on either the Close button or the backdrop. Be sure to add the `stopPropagation()` function to the click event on the `modal-content` to avoid unintentionally triggering the `onClose` function.
 
-Next, let's put this component into action in our App.tsx. Typically in larger applications, you'd avoid rendering the modal directly in the App.tsx file, but for simplicity's sake, we'll do so in this instance:
+Next, let's put this component into action in our `App.tsx`. Typically in larger applications, you'd avoid rendering the modal directly in the `App.tsx` file, but for simplicity's sake, we'll do so in this instance:
 
 ```
 // src/App.tsx
@@ -271,7 +271,7 @@ const Modal = ({
       aria-labelledby={labelledbyId}
       ref={modalRef}
     >
-      <div className='modal-content' onClick={(e) => e.stopPropagation()}>
+      <div className='modal-content' onClick={(e) => event.stopPropagation()}>
         <button onClick={onClose}>Close</button>
         {children}
       </div>
@@ -290,7 +290,7 @@ A new state variable `labelledbyId` is added to hold the id of the modal's headi
 
 We've also utilized a `useEffect` hook, enabling us to set the `labelledbyId` when the modal is open and ensuring the focus returns to the triggering element when the modal closes.
 
-Lastly, these enhancements necessitate some changes to our App.tsx, which are as follows:
+Lastly, these enhancements necessitate some changes to our `App.tsx`, which are as follows:
 
 ```
 // src/App.tsx
@@ -382,7 +382,7 @@ In this update, we add a 'ref' named `modalHeadingRef` to track our modal's head
 
 Next, it's crucial to guarantee that when our modal is open, users cannot interact with the background content. This is particularly important for keyboard and screen reader users. To address this, we'll create a hook named `useFocusTrap`. Also, remember that we've already used the `modal-backdrop` class to visually indicate that the content behind the modal is inactive, which is ideal.
 
-Now, let's create a new file named useFocusTrap.ts in your hooks directory and add the following code:
+Now, let's create a new file named `useFocusTrap.ts` in your hooks directory and add the following code:
 
 ```
 // src/hooks/useFocusTrap.ts
@@ -498,7 +498,7 @@ const Modal = ({
       aria-labelledby={labelledbyId}
       ref={modalRef}
     >
-      <div className='modal-content' onClick={(e) => e.stopPropagation()}>
+      <div className='modal-content' onClick={(e) => event.stopPropagation()}>
         <button onClick={onClose}>Close</button>
         {children}
       </div>
