@@ -1,8 +1,8 @@
 ---
 title: 'Git Gud Vol. 1: Mastering File Restoration in Git'
-description: Discover how to restore a Git file back to its initial state at a specific commit.
+description: Discover how to restore a Git file back to its initial state at a specific commit. This article is the first in a series documenting techniques I've learned during the quest to improve my Git skills.
 slug: git-gud-1-mastering-file-restoration
-meta: Discover how to restore a Git file back to its initial state at a specific commit.
+meta: Discover how to restore a Git file back to its initial state at a specific commit. This article is the first in a series documenting techniques I've learned during the quest to improve my Git skills.
 date: '2023-05-26 12:00:00'
 tags: [Git, Version Control, Tooling]
 ---
