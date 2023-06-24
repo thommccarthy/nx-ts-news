@@ -1,8 +1,8 @@
 ---
 title: 'Creating Accessible Modal Dialogs with React and TypeScript'
-description: 'Delve into the intricacies of developing accessible modal dialogs using the power of React, and TypeScript. This comprehensive guide includes examples and refactoring techniques.'
+description: 'Build an accessible modal dialog with Vite, React, and TypeScript. Understand the benefits of reusable components and hooks in refactoring your code.'
 slug: modal-react-ts
-meta: 'Uncover the process of creating accessible modal dialogs with Vite, React, and TypeScript. Understand the benefits of reusable components and hooks in refactoring your code.'
+meta: 'Build an accessible modal dialog with Vite, React, and TypeScript. Understand the benefits of reusable components and hooks in refactoring your code.'
 date: '2023-06-24 12:00:00'
 tags: [Accessibility, React, TypeScript, Hooks]
 ---
