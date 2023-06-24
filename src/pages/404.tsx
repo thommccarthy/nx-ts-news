@@ -1,9 +1,11 @@
-import styles from '../styles/NotFound.module.css';
-
 const NotFound = () => {
   return (
-    <div className={styles.container}>
+    <div className='min-h-screen flex justify-center items-center'>
       <h1>404 Not Found</h1>
+      <p>
+        Sorry, the page you are looking for does not exist. Please use site
+        navigation to browse this website
+      </p>
     </div>
   );
 };

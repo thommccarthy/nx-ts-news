@@ -19,6 +19,7 @@ import NextImage from '@/components/blogs/MDX/NextImage';
 import BackToTop from '@/components/global/utility/BackToTop';
 import ExternalLink from '@/components/global/utility/ExternalLink';
 import CodeBlockFocusWrapper from '@/components/blogs/MDX/CodeBlockFocusWrapper';
+import { NextSeo } from 'next-seo';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 const components = {
@@ -29,36 +30,43 @@ const components = {
 };
 
 const SinglePage: NextPage<Props> = ({ post }) => {
-  const { content, title, date, tags } = post;
+  const { content, title, date, tags, meta, slug } = post;
   const formattedDate = useFormattedDate(date);
   const headingRef = useRef<HTMLHeadingElement>(null);
 
   return (
-    <div className='max-w-4xl mx-auto px-5 my-3'>
-      <h1
-        className='font-extrabold text-center text-3xl md:text-4xl mb-4 retro'
-        ref={headingRef}
-        tabIndex={-1}
-      >
-        {title}
-      </h1>
-      <p className='text-sm md:text-base font-black mb-5 max-w-max px-3 py-1 text-center mx-auto rounded-md'>
-        {formattedDate}
-      </p>
-      <ul className='tags flex flex-wrap justify-center items-center mx-auto gap-2 mb-5'>
-        {tags.map((tag) => (
-          <li key={tag}>
-            <BlogTag tagName={tag} />
-          </li>
-        ))}
-      </ul>
+    <>
+      <NextSeo
+        title={`${title} | Thom McCarthy`}
+        description={meta}
+        canonical={`https://thommccarthy.com/blogs/${slug}`}
+      />
+      <div className='max-w-4xl mx-auto px-5 my-3'>
+        <h1
+          className='font-extrabold text-center text-3xl md:text-4xl mb-4 retro'
+          ref={headingRef}
+          tabIndex={-1}
+        >
+          {title}
+        </h1>
+        <p className='text-sm md:text-base font-black mb-5 max-w-max px-3 py-1 text-center mx-auto rounded-md'>
+          {formattedDate}
+        </p>
+        <ul className='tags flex flex-wrap justify-center items-center mx-auto gap-2 mb-5'>
+          {tags.map((tag) => (
+            <li key={tag}>
+              <BlogTag tagName={tag} />
+            </li>
+          ))}
+        </ul>
 
-      <RainbowDivider />
-      <div className='prose pb-20 mdx'>
-        <MDXRemote {...content} components={components} />
-        <BackToTop refToScrollTo={headingRef} />
+        <RainbowDivider />
+        <div className='prose pb-20 mdx'>
+          <MDXRemote {...content} components={components} />
+          <BackToTop refToScrollTo={headingRef} />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
@@ -98,6 +106,8 @@ type Post = {
     date: string;
     tags: string[];
     content: MDXRemoteSerializeResult;
+    meta: string;
+    slug: string;
   };
 };
 
@@ -122,6 +132,8 @@ export const getStaticProps: GetStaticProps<Post> = async (context) => {
           title: source.frontmatter.title,
           date: source.frontmatter.date,
           tags: source.frontmatter.tags,
+          meta: source.frontmatter.meta,
+          slug: source.frontmatter.slug,
         },
       },
     };
