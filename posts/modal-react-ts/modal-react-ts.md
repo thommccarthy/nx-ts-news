@@ -21,11 +21,13 @@ Before we jump in, there are some prerequisites. Make sure you have <ExternalLin
 
 ## Setting up the Project
 
-Create project using the vite react-ts template by running:
+Create project by running the following command in your terminal:
 
 ```
-npm create vite@latest react-modal-ts --template react-ts
+npm create vite@latest react-modal-ts
 ```
+
+You will be prompted to select a framework and whether you want to use TypeScript. Select React and TypeScript respectively.
 
 Navigate to the new project:
 
@@ -122,8 +124,6 @@ Next we will build a simple modal dialog. In your components directory, create a
 
 ```
 // src/components/Modal.tsx
-
-import React from 'react';
 import './Modal.css';
 
 type ModalProps = {
@@ -159,7 +159,7 @@ Next, let's put this component into action in our `App.tsx`. Typically in larger
 ```
 // src/App.tsx
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Modal from './components/Modal';
 
 const App = () => {
@@ -228,7 +228,7 @@ Update the `Modal.tsx` component with the following code:
 ```
 // src/components/Modal.tsx
 
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import './Modal.css';
 
 type ModalProps = {
@@ -451,7 +451,7 @@ Next, let's modify `Modal.tsx` to incorporate this new hook:
 ```
 // src/components/Modal.tsx
 
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useFocusTrap from '../hooks/useFocusTrap';
 import './Modal.css';
 
@@ -512,7 +512,7 @@ export default Modal;
 
 With these updates, our modal is much more accessible.
 
-I would also like to clean up our App.tsx file a bit by extracting some of the logic into it's own hook. Let's create a file named `useModal.ts` in the hooks directory and add the following code:
+I would also like to clean up our `App.tsx` file a bit by extracting some of the logic into it's own hook. Let's create a file named `useModal.ts` in the hooks directory and add the following code:
 
 ```
 import { useState, useRef, useEffect } from 'react';
