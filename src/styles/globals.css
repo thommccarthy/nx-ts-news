@@ -26,22 +26,6 @@ body {
   background-size: 20px 20px;
 }
 
-::-webkit-scrollbar {
-  height: 7px;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-indigo-400;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-indigo-950;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-indigo-900;
-}
-
 .font-fira-code {
   font-family: 'Fira Code', monospace !important;
 }
