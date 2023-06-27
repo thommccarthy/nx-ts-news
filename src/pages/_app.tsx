@@ -1,5 +1,6 @@
 import Layout from '@/components/layout/Layout';
 import '@/styles/globals.css';
+import '@/styles/highlight-js/stackoverflow-dark.css';
 import type { AppProps } from 'next/app';
 import { DefaultSeo } from 'next-seo';
 

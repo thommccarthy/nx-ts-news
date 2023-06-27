@@ -23,7 +23,7 @@ Before we jump in, there are some prerequisites. Make sure you have <ExternalLin
 
 Create project by running the following command in your terminal:
 
-```
+```shell
 npm create vite@latest react-modal-ts
 ```
 
@@ -31,19 +31,19 @@ You will be prompted to select a framework and whether you want to use TypeScrip
 
 Navigate to the new project:
 
-```
+```shell
 cd react-modal-ts
 ```
 
 Then, install the project dependencies:
 
-```
+```shell
 npm install
 ```
 
 Start the development server:
 
-```
+```shell
 npm run dev
 ```
 
@@ -51,7 +51,7 @@ You should see your application running on http://localhost:5713.
 
 Let's start off by setting up the base styles for our application in `src/index.css`.
 
-```
+```css
 /* src/index.css */
 
 :root {
@@ -95,7 +95,7 @@ button {
 
 We'll also setup a stylesheet for our modal in `src/components/Modal.css`.
 
-```
+```css
 /* src/components/Modal.css */
 
 .modal-backdrop {
@@ -122,7 +122,7 @@ We'll also setup a stylesheet for our modal in `src/components/Modal.css`.
 
 Next we will build a simple modal dialog. In your components directory, create a new file called `Modal.tsx`:
 
-```
+```typescript
 // src/components/Modal.tsx
 import './Modal.css';
 
@@ -139,10 +139,11 @@ const Modal = ({ showModal, onClose, children }: ModalProps) => {
 
   return (
     <div className='modal-backdrop' onClick={onClose}>
-      <div className='modal-content' onClick={(event) => event.stopPropagation()}>
-        <button onClick={onClose}>
-          Close
-        </button>
+      <div
+        className='modal-content'
+        onClick={(event) => event.stopPropagation()}
+      >
+        <button onClick={onClose}>Close</button>
         {children}
       </div>
     </div>
@@ -156,7 +157,7 @@ Here's a basic modal component we'll be working with. It renders its children an
 
 Next, let's put this component into action in our `App.tsx`. Typically in larger applications, you'd avoid rendering the modal directly in the `App.tsx` file, but for the scope of this guide, we will do so:
 
-```
+```typescript
 // src/App.tsx
 
 import { useState } from 'react';
@@ -176,22 +177,17 @@ const App = () => {
   return (
     <div>
       <h1>Accessible React Modal</h1>
-      <button
-        onClick={openModal}
-      >
-        Open Modal
-      </button>
+      <button onClick={openModal}>Open Modal</button>
 
-      <Modal
-        showModal={showModal}
-        onClose={closeModal}
-      >
-        <h2 id='sample-modal-heading'>
-          Accessible Modal Example
-        </h2>
+      <Modal showModal={showModal} onClose={closeModal}>
+        <h2 id='sample-modal-heading'>Accessible Modal Example</h2>
         <p>
-          This component provides a practical demonstration of an accessible modal dialog that secures user focus within its boundaries. By implementing it in React, we capitalize on the benefits of component
-          reusability and scalability. TypeScript further fortifies our design by enhancing code clarity, simplifying intent recognition, and minimizing the potential for common errors.
+          This component provides a practical demonstration of an accessible
+          modal dialog that secures user focus within its boundaries. By
+          implementing it in React, we capitalize on the benefits of component
+          reusability and scalability. TypeScript further fortifies our design
+          by enhancing code clarity, simplifying intent recognition, and
+          minimizing the potential for common errors.
         </p>
         <ul>
           <li>
@@ -225,7 +221,7 @@ ARIA roles and properties serve to enhance accessibility, imparting more detaile
 
 Update the `Modal.tsx` component with the following code:
 
-```
+```typescript
 // src/components/Modal.tsx
 
 import { useEffect } from 'react';
@@ -293,7 +289,7 @@ We've also utilized a `useEffect` hook, enabling us to set the `labelledbyId` wh
 
 Lastly, these enhancements necessitate some changes to our `App.tsx`, which are as follows:
 
-```
+```typescript
 // src/App.tsx
 import { useState, useRef, useEffect } from 'react';
 import Modal from './components/Modal';
@@ -317,7 +313,7 @@ const App = () => {
   };
 
   // listening for the Escape key to close the modal and return focus to the trigger element
-   useEffect(() => {
+  useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape' && showModal === true) {
         closeModal();
@@ -353,8 +349,11 @@ const App = () => {
           Accessible Modal Example
         </h2>
         <p>
-          This component provides a practical demonstration of an accessible modal dialog that secures user focus within its boundaries. By implementing it in React, we capitalize on the benefits of component
-          reusability and scalability. TypeScript further fortifies our design by enhancing code clarity, simplifying intent recognition, and
+          This component provides a practical demonstration of an accessible
+          modal dialog that secures user focus within its boundaries. By
+          implementing it in React, we capitalize on the benefits of component
+          reusability and scalability. TypeScript further fortifies our design
+          by enhancing code clarity, simplifying intent recognition, and
           minimizing the potential for common errors.
         </p>
         <ul>
@@ -385,7 +384,7 @@ Next, it's crucial to guarantee that when our modal is open, users cannot intera
 
 Let's create a new file named `useFocusTrap.ts` in your hooks directory and add the following code:
 
-```
+```typescript
 // src/hooks/useFocusTrap.ts
 
 import { useEffect } from 'react';
@@ -448,7 +447,7 @@ Our hook takes advantage of the `useEffect` to add a 'keydown' event listener wh
 
 Next, let's modify `Modal.tsx` to incorporate this new hook:
 
-```
+```typescript
 // src/components/Modal.tsx
 
 import { useEffect, useRef, useState } from 'react';
@@ -514,7 +513,7 @@ With these updates, our modal is much more accessible.
 
 I would also like to clean up our `App.tsx` file a bit by extracting some of the logic into it's own hook. Let's create a file named `useModal.ts` in the hooks directory and add the following code:
 
-```
+```typescript
 import { useState, useRef, useEffect } from 'react';
 
 const useModal = () => {
@@ -562,7 +561,7 @@ export default useModal;
 
 This hook encapsulates the logic for opening and closing the modal, as well as handling the 'Escape' key to close the modal. Let's update `App.tsx` to use this hook:
 
-```
+```typescript
 import useModal from './hooks/useModal';
 import Modal from './components/Modal';
 

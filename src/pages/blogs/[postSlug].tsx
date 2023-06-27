@@ -20,6 +20,7 @@ import BackToTop from '@/components/global/utility/BackToTop';
 import ExternalLink from '@/components/global/utility/ExternalLink';
 import CodeBlockFocusWrapper from '@/components/blogs/MDX/CodeBlockFocusWrapper';
 import { NextSeo } from 'next-seo';
+import rehypeHighlight from 'rehype-highlight';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 const components = {
@@ -121,8 +122,15 @@ export const getStaticProps: GetStaticProps<Post> = async (context) => {
       `posts/${postSlug}/${postSlug || `index`}.md`
     );
     const fileContent = fs.readFileSync(filePathToRead, { encoding: 'utf-8' });
+
+    const mdxOptions = {
+      remarkPlugins: [],
+      rehypePlugins: [rehypeHighlight],
+    };
+
     const source: any = await serialize(fileContent, {
       parseFrontmatter: true,
+      mdxOptions,
     });
 
     return {

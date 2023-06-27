@@ -26,6 +26,22 @@ body {
   background-size: 20px 20px;
 }
 
+::-webkit-scrollbar {
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-indigo-400;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-indigo-950;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-indigo-900;
+}
+
 .font-fira-code {
   font-family: 'Fira Code', monospace !important;
 }
@@ -115,14 +131,13 @@ a {
 }
 
 .prose p code {
-  @apply font-semibold;
-  @apply bg-indigo-900;
+  @apply font-normal;
+  @apply bg-indigo-950;
   @apply text-white;
-  @apply rounded-md;
+  @apply rounded-sm;
   @apply py-1 px-3;
-  @apply shadow-indigo-900 shadow-sm;
   @apply text-lg;
-  @apply bg-opacity-60;
+  @apply bg-opacity-90;
 }
 
 .prose p code::before {

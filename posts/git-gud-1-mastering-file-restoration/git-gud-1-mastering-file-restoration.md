@@ -17,7 +17,7 @@ This series is as much a personal journey as it is a guide. By no means am I a G
 
 To restore the file, start by locating the commit where your branch was created. The git merge-base command helps you find the common ancestor commit of your current branch and the branch it was created from (typically main or master).
 
-```
+```bash
 git merge-base <current-branch> <parent-branch>
 ```
 
@@ -25,7 +25,7 @@ Replace `<current-branch>` with your current branch name and `<parent-branch>` w
 
 Alternatively, you can use git log to visually inspect the commit history and locate the branch point:
 
-```
+```bash
 git log --graph --decorate --oneline <parent-branch> <current-branch>
 ```
 
@@ -33,7 +33,7 @@ git log --graph --decorate --oneline <parent-branch> <current-branch>
 
 With the commit hash in hand, you can now restore the file to its state at the branch's creation. Use the git checkout command along with the commit hash and the file path you want to restore.
 
-```
+```bash
 git checkout <commit-hash> -- <file-path>
 ```
 
@@ -43,7 +43,7 @@ Replace `<commit-hash>` with the hash from step 1 and `<file-path>` with the rel
 
 After restoring the file, you'll have local changes. To keep the restored file in your current branch, commit these changes using the git add and git commit commands.
 
-```
+```bash
 git add <file-path>
 git commit -m "Restored <file-path> to its state at branch creation"
 ```
@@ -54,7 +54,7 @@ Replace `<file-path>` with the relative path of the restored file. This will cre
 
 If you want to restore a file to a specific previous commit instead of the branch creation point, you can use the same git checkout command with the desired commit hash:
 
-```
+```bash
 git checkout <specific-commit-hash> -- <file-path>
 ```
 
