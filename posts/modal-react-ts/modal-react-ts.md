@@ -139,10 +139,7 @@ const Modal = ({ showModal, onClose, children }: ModalProps) => {
 
   return (
     <div className='modal-backdrop' onClick={onClose}>
-      <div
-        className='modal-content'
-        onClick={(event) => event.stopPropagation()}
-      >
+      <div className='modal-content' onClick={(e) => e.stopPropagation()}>
         <button onClick={onClose}>Close</button>
         {children}
       </div>
@@ -268,7 +265,7 @@ const Modal = ({
       aria-labelledby={labelledbyId}
       ref={modalRef}
     >
-      <div className='modal-content' onClick={(e) => event.stopPropagation()}>
+      <div className='modal-content' onClick={(e) => e.stopPropagation()}>
         <button onClick={onClose}>Close</button>
         {children}
       </div>
@@ -498,7 +495,7 @@ const Modal = ({
       aria-labelledby={labelledbyId}
       ref={modalRef}
     >
-      <div className='modal-content' onClick={(e) => event.stopPropagation()}>
+      <div className='modal-content' onClick={(e) => e.stopPropagation()}>
         <button onClick={onClose}>Close</button>
         {children}
       </div>
