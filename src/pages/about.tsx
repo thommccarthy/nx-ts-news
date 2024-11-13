@@ -46,7 +46,7 @@ const About: React.FC = () => {
             </p>
             <p className='text-paragraph'>
               In my current role as a{' '}
-              <span className='font-bold'>UX Engineer</span> at
+              <span className='font-bold'>UX Engineer</span> at{' '}
               <ExternalLink
                 href='https://stratapt.com'
                 className='font-bold decoration-sky-300 whitespace-nowrap'

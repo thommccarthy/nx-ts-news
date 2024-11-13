@@ -37,12 +37,18 @@ const Home: NextPage<Props> = ({ posts }) => {
         <div className='border-indigo-800 backgroundGlass border-2 px-3 md:px-9 rounded-lg max-w-4xl mx-auto w-100 flex justify-center items-center py-8  shadow-indigo-500 shadow-lg mb-6 md:mb-8'>
           <div className='text-center md:text-left'>
             <p className='text-lg md:text-xl font-normal md:pr-5'>
-              I{`'`}m a <span className='font-black'>UX Engineer</span> based in{' '}
-              <span>West Philadelphia</span>
+              I’m a <span className='font-black'>UX Engineer</span> based in
+              West Philadelphia.
               <br />
-              <br />I build and design responsive, scalable, robust and
-              accessible web interfaces. On occasion I will write{' '}
-              <span className='whitespace-nowrap'>about it.</span>
+              <br />
+              I craft scalable, responsive interfaces for both enterprise and
+              e-commerce projects, with a focus on accessibility and clean
+              design. My approach is rooted in problem-solving, ensuring users
+              have a seamless experience every time.
+              <br />
+              <br />
+              When I have the time, I like to write about the process and
+              challenges of building great digital products.
               <br />
             </p>
             <div className='mt-4'>
