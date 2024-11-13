@@ -5,14 +5,16 @@ import { NextSeo } from 'next-seo';
 
 const About: React.FC = () => {
   const techILike: string[] = [
+    'React Js',
+    'Vue Js',
     'Next.js',
     'Gatsby',
     'TypeScript',
     'Tailwind CSS',
     'Node JS',
-    'Laravel',
     'Figma',
     'WAI-ARIA',
+    '.NET',
     'Storybook',
   ];
 
@@ -37,30 +39,33 @@ const About: React.FC = () => {
               className={`rounded-full block mx-auto bgGradientImg md:float-right my-5 px-3`}
             />
             <p className='text-paragraph'>
-              I&apos;m Thom, a <span className='font-bold'>UX Engineer</span>{' '}
-              from West Philadelphia, crafting responsive, scalable, and
-              aesthetically pleasing web interfaces with a strong emphasis on
-              accessibility.
+              I’m Thom, a <span className='font-bold'>UX Engineer</span> based
+              in West Philadelphia, passionate about designing responsive,
+              scalable, and visually captivating web interfaces with a strong
+              commitment to accessibility and usability.
             </p>
             <p className='text-paragraph'>
               In my current role as a{' '}
-              <span className='font-bold'>Front-End Developer</span> at{' '}
+              <span className='font-bold'>UX Engineer</span> at
               <ExternalLink
-                href='https://rockybrands.com'
+                href='https://stratapt.com'
                 className='font-bold decoration-sky-300 whitespace-nowrap'
               >
-                Rocky Brands
+                StrataPT
               </ExternalLink>
-              , I collaborate with a dynamic team to build and sustain our
-              e-commerce platforms, corporate portfolio sites, and internal{' '}
+              , a leading provider of medical EMR software, I collaborate with a
+              multidisciplinary team to drive the development and optimization
+              of our enterprise software, client-facing portals, and internal{' '}
               <span className='whitespace-nowrap'>workflow tools.</span>
             </p>
             <p className='text-paragraph'>
-              Collaborating with designers and project managers, I focus on
-              delivering high-performance products with excellent user
-              experience. My role involves client and server-side programming,
-              advising on design decisions, validating technical feasibility,
-              and enhancing the visual and functional appeal of our products.
+              By partnering closely with designers and project managers, I
+              ensure the delivery of high-impact, user-centric products. My
+              expertise spans client and server-side development, wireframing,
+              prototyping, and validating technical feasibility. I’m dedicated
+              to enhancing the visual aesthetics and functional performance of
+              our platforms, continuously refining user experiences to align
+              with business objectives.
             </p>
 
             <h2 className='mt-5 text-lg md:text-xl font-normal font-fira-code'>
