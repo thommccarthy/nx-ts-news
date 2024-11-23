@@ -24,6 +24,7 @@ module.exports = {
         DEFAULT: {
           css: {
             color: theme('colors.white'),
+            '--tw-prose-bold': 'white',
             a: {
               color: theme('colors.white'),
               fontWeight: `bold`,
