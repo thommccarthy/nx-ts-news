@@ -119,6 +119,8 @@ Empty states aren't one-size-fits-all; they serve different functions depending 
 
 **Example**: An e-commerce site displays "No products found" with links to popular categories or a prompt to adjust filters.
 
+![No Products Found UX](/assets/blogs/no-products-found-ux.png)
+
 **Code Example:**
 
 ```html
