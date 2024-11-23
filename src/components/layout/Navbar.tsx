@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { MobileMenu } from './MobileMenu';
 
-interface Props {
-  getLinkAriaCurrent: (path: string) => 'page' | undefined;
-}
-
-const Navbar: React.FC<Props> = ({ getLinkAriaCurrent }) => {
+const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const openRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const [hasInteracted, setHasInteracted] = useState(false);
+
+  const router = useRouter();
+  const { pathname } = router;
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -27,6 +27,16 @@ const Navbar: React.FC<Props> = ({ getLinkAriaCurrent }) => {
       }
     }
   }, [isOpen, hasInteracted]);
+
+  const getLinkAriaCurrent = (path: string): 'page' | undefined => {
+    if (pathname === path) {
+      return 'page';
+    }
+    if (pathname.startsWith(`${path}/`)) {
+      return 'page';
+    }
+    return undefined;
+  };
 
   return (
     <div className='border-t-yellow-200 d-block border-t-4 glassWrapper sticky top-0 z-50 mb-5 md:mb-8'>
@@ -74,7 +84,11 @@ const Navbar: React.FC<Props> = ({ getLinkAriaCurrent }) => {
           <li className='mb-0 pb-0 '>
             <Link
               href='/blogs'
-              className='text-lg custom-nav-link custom-nav-link--header'
+              className={`text-lg custom-nav-link custom-nav-link--header ${
+                getLinkAriaCurrent('/blogs')
+                  ? 'font-bold underline text-yellow-300'
+                  : ''
+              }`}
               title='Thom McCarthy | Blog'
               aria-current={getLinkAriaCurrent('/blogs')}
             >
@@ -84,7 +98,11 @@ const Navbar: React.FC<Props> = ({ getLinkAriaCurrent }) => {
           <li>
             <Link
               href='/about'
-              className='text-lg custom-nav-link custom-nav-link--header'
+              className={`text-lg custom-nav-link custom-nav-link--header ${
+                getLinkAriaCurrent('/about')
+                  ? 'font-bold underline text-yellow-300'
+                  : ''
+              }`}
               title='Thom McCarthy | About'
               aria-current={getLinkAriaCurrent('/about')}
             >
