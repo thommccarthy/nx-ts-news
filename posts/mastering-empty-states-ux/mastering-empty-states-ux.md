@@ -1,5 +1,5 @@
 ---
-title: 'Mastering Empty States in UX Design with Practical Code Examples'
+title: 'Understanding Empty States in UX Design'
 description: 'Learn how to design effective empty states in your applications with practical code examples. Enhance user experience by guiding users through informative, action-focused, and celebratory empty states.'
 slug: mastering-empty-states-ux
 meta: 'Design effective empty states in your applications with practical code examples. Enhance UX by guiding users through informative, action-focused, and celebratory empty states.'
@@ -166,59 +166,8 @@ Empty states aren't one-size-fits-all; they serve different functions depending 
 </section>
 ```
 
-## Real-World Examples of Effective Empty States
-
-### Project Collaboration Tool
-
-A collaboration platform might use an empty state on a new team's page.
-
-**Code Example:**
-
-```html
-<section class="empty-team">
-  <img src="images/team-collaboration.svg" alt="Team collaborating" />
-  <h2>No projects yet</h2>
-  <p>Get started by creating your first project.</p>
-  <button type="button" onclick="startFirstProject()">
-    Start Your First Project
-  </button>
-</section>
-```
-
-### Productivity App
-
-A to-do list app celebrates when all tasks are completed.
-
-**Code Example:**
-
-```html
-<section class="tasks-complete">
-  <img src="images/celebration.svg" alt="Person celebrating" />
-  <h2>Great job! You're all done for today.</h2>
-</section>
-```
-
-### Financial Software
-
-An accounting application uses empty states in financial reports to explain when data isn't available.
-
-**Code Example:**
-
-```html
-<section class="empty-reports">
-  <h2>Your reports are empty</h2>
-  <p>Import transactions to generate financial reports.</p>
-  <button type="button" onclick="importTransactions()">
-    Import Transactions
-  </button>
-  <a href="/help/importing">Need help?</a>
-</section>
-```
-
-## Bringing It All Together
+## Final Thoughts
 
 Neglecting empty states can leave users feeling lost or frustrated. By thoughtfully designing these moments and maintaining consistency in your code, you transform potential points of confusion into opportunities for engagement and satisfaction. Remember, an empty state isn't just a blank space—it's a canvas to communicate, guide, and even delight your users.
-
-## Final Thoughts
 
 Think of empty states as the silent supporters of your application's user experience. They can either be awkward pauses or meaningful conversations. By designing them with intention, using consistent code practices, and considering accessibility, you ensure that users are never left staring at a void but are instead guided, informed, and even delighted at every turn.
