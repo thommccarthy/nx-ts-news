@@ -4,14 +4,15 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { MobileMenu } from './MobileMenu';
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  getLinkAriaCurrent: (path: string) => 'page' | undefined;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ getLinkAriaCurrent }) => {
   const [isOpen, setIsOpen] = useState(false);
   const openRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const [hasInteracted, setHasInteracted] = useState(false);
-
-  const router = useRouter();
-  const { pathname } = router;
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -27,16 +28,6 @@ const Navbar: React.FC = () => {
       }
     }
   }, [isOpen, hasInteracted]);
-
-  const getLinkAriaCurrent = (path: string): 'page' | undefined => {
-    if (pathname === path) {
-      return 'page';
-    }
-    if (pathname.startsWith(`${path}/`)) {
-      return 'page';
-    }
-    return undefined;
-  };
 
   return (
     <div className='border-t-yellow-200 d-block border-t-4 glassWrapper sticky top-0 z-50 mb-5 md:mb-8'>
@@ -80,8 +71,8 @@ const Navbar: React.FC = () => {
             />
           </svg>
         </button>
-        <ul className='hidden sm:flex align-baseline gap-4 '>
-          <li className='mb-0 pb-0 '>
+        <ul className='hidden sm:flex align-baseline gap-4'>
+          <li className='mb-0 pb-0'>
             <Link
               href='/blogs'
               className={`text-lg custom-nav-link custom-nav-link--header ${
